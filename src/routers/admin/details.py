@@ -60,7 +60,7 @@ def dashboard_chart_details(duration: str = VALIDATORS.CHART_DURATION, token_pay
     try:
         dataset = data_access.get_admin_dashboard_chart_details(duration=duration)
 
-        if len(dataset):
+        if len(dataset) > 0:
             return {'success': True, 'message': OK, 'data': data_frame_to_json_object(dataset['rs'])}
 
         return {'success': False, 'message': DATABASE_CONNECTION_ERROR}
