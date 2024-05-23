@@ -9,6 +9,7 @@ from .matrix import router as matrix_router
 from .matching import router as matching_router
 from .withdrawal_level import router as withdrawal_level_router
 from .repurchase_level import router as repurchase_level_router
+from .reward import router as reward_router
 from .total import router as total_router
 
 router = APIRouter(
@@ -23,6 +24,7 @@ router.include_router(spill_router)
 router.include_router(single_leg_router)
 router.include_router(matrix_router)
 router.include_router(matching_router)
-router.include_router(total_router)
 router.include_router(withdrawal_level_router)
 router.include_router(repurchase_level_router)
+router.include_router(reward_router)
+router.include_router(total_router)
