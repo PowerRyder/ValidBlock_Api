@@ -52,8 +52,7 @@ def topup_from_wallet(req: TopupFromWalletRequest, token_payload: any = Depends(
         else:
             req.two_factor_auth_request_id = 0
             
-        dataset = data_access.topup_from_wallet(req=req, by_user_id=token_payload["user_id"],
-                                            by_user_type=token_payload["role"])
+        dataset = data_access.topup_from_wallet(req=req, by_user_id=token_payload["user_id"], by_user_type=token_payload["role"])
         # print(dataset)
         if len(dataset) > 0 and len(dataset['rs']):
             ds = dataset['rs']

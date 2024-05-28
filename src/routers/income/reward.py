@@ -11,7 +11,7 @@ from src.utilities.utils import data_frame_to_json_object, get_error_message
 
 router = APIRouter(dependencies=[Depends(get_current_user)])
 
-@router.post('/get_reward_income', dependencies=[Depends(RightsChecker([140, 141]))])
+@router.post('/get_reward_income', dependencies=[Depends(RightsChecker([10, 11]))])
 def get_reward_income(req: GetRewardIncome_Request, token_payload: any = Depends(get_current_user)):
     try:
         match_exact_user_id = False
@@ -32,7 +32,7 @@ def get_reward_income(req: GetRewardIncome_Request, token_payload: any = Depends
         return {'success': False, 'message': get_error_message(e)}
 
 
-@router.get('/get_ranks', dependencies=[Depends(RightsChecker([140, 141]))])
+@router.get('/get_ranks', dependencies=[Depends(RightsChecker([10, 11]))])
 def get_ranks(token_payload: any = Depends(get_current_user)):
     try:
         dataset = data_access.get_ranks()

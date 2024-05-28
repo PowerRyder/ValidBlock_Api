@@ -17,11 +17,11 @@ crypto_payment_gateway_config = config['CryptoPaymentGateway']
 @router.get('/get_deposit_currencies', dependencies=[Depends(RightsChecker([216]))])
 async def get_deposit_currencies(token_payload: any = Depends(get_current_user)):
     try:
-        response = requests.get(crypto_payment_gateway_config['BaseURL']+'get_deposit_currencies?app_key='+crypto_payment_gateway_config['AppKey'])
+        response = requests.get(crypto_payment_gateway_config['BaseURL']+'get_deposit_currencies?api_key='+crypto_payment_gateway_config['AppKey'])
 
         data = response.json()
 
-        # print(data)
+        print(data)
         if data['success']:
             return {'success': True, 'message': OK, 'data': data['data'] }
 
@@ -33,9 +33,9 @@ async def get_deposit_currencies(token_payload: any = Depends(get_current_user))
 
 
 @router.get('/get_deposit_address', dependencies=[Depends(RightsChecker([216]))])
-async def get_deposit_address(network: str, currency_symbol: str, amount: float, token_payload: any = Depends(get_current_user)):
+async def get_deposit_address(network: str, currency_symbol: str, currency_code: str, amount: float, token_payload: any = Depends(get_current_user)):
     try:
-        url = crypto_payment_gateway_config['BaseURL']+'request_address_for_payment?app_key='+crypto_payment_gateway_config['AppKey']+'&network='+network+'&currency_symbol='+currency_symbol
+        url = crypto_payment_gateway_config['BaseURL']+'request_deposit_address?api_key='+crypto_payment_gateway_config['AppKey']+'&currency_code='+currency_code+'&payout_type=ASAP'
         response = requests.get(url)
 
         data = response.json()
@@ -44,7 +44,7 @@ async def get_deposit_address(network: str, currency_symbol: str, amount: float,
         if data['success']:
             address = data['address']
             address_qr = data['address_qr']
-            payment_request_id = data['payment_request_id']
+            payment_request_id = data['deposit_request_id']
 
             dataset = data_access.save_crypto_deposit_request_details(user_id=token_payload['user_id'], network=network, token_symbol=currency_symbol, payment_request_id=payment_request_id, amount=amount)
 

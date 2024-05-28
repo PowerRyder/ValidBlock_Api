@@ -2,15 +2,11 @@ from collections import defaultdict
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-import pystache
 
-from src.business_layer.email_service import send_joining_mail
-from src.routers.accounts.register import send_joining_mail_and_sms
-from src.routers.docs.welcome_letter import get_welcome_letter_pdf_bytes
 from src.routers.pin import pin
 
 from src.utilities import aes
-from src.utilities.helper_utils import compile_email_formats_mjml, delete_precompiled_templates, generate_routes_json, get_email_template, send_mail
+from src.utilities.helper_utils import compile_email_formats_mjml, generate_routes_json
 from src.routers import company, misc, encrypt_decrypt
 from fastapi.exceptions import RequestValidationError
 from fastapi.encoders import jsonable_encoder

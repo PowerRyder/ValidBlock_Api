@@ -11,7 +11,7 @@ from src.utilities.utils import data_frame_to_json_object, get_error_message
 router = APIRouter(dependencies=[Depends(get_current_user)])
 
 
-@router.post('/get_scratch_cards', dependencies=[Depends(RightsChecker([136, 137, 138, 139]))])
+@router.post('/get_scratch_cards', dependencies=[Depends(RightsChecker([10, 11]))])
 def get_scratch_cards(req: GetScratchCards_Request, token_payload: any = Depends(get_current_user)):
     try:
         match_exact_user_id = False
@@ -32,7 +32,7 @@ def get_scratch_cards(req: GetScratchCards_Request, token_payload: any = Depends
         return {'success': False, 'message': get_error_message(e)}
 
 
-@router.get('/process_magic_income_on_scratch', dependencies=[Depends(RightsChecker([136, 137, 138, 139]))])
+@router.get('/process_magic_income_on_scratch', dependencies=[Depends(RightsChecker([10, 11]))])
 def process_magic_income_on_scratch(scratch_card_id: int, token_payload: any = Depends(get_current_user)):
     try:
         user_id = token_payload["user_id"]
