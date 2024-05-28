@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1b713d2-e276-41d4-afaf-6cba15077c11" name="Changes" comment="Bug fix">
-      <change afterPath="$PROJECT_DIR$/src/data_access/topup/validator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routers/topup/validator.py" afterDir="false" />
+    <list default="true" id="b1b713d2-e276-41d4-afaf-6cba15077c11" name="Changes" comment="Added validator functionality">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/routes.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/routes.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routers/topup/crypto_deposit.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/topup/crypto_deposit.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routers/topup/topup.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/topup/topup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data_access/topup/validator.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_access/topup/validator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routers/topup/validator.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/topup/validator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/email/compiled/email_verification_link.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/email/compiled/email_verification_link.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/email/mjml/email_verification_link.mjml" beforeDir="false" afterPath="$PROJECT_DIR$/templates/email/mjml/email_verification_link.mjml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,6 +111,7 @@
       <workItem from="1709618586301" duration="10725000" />
       <workItem from="1709820508555" duration="16948000" />
       <workItem from="1716813337888" duration="5038000" />
+      <workItem from="1716882454790" duration="2603000" />
     </task>
     <task id="LOCAL-00001" summary="Test from Pycharm">
       <option name="closed" value="true" />
@@ -194,7 +193,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716288819770</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Added validator functionality">
+      <option name="closed" value="true" />
+      <created>1716882799662</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1716882799662</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -218,7 +225,8 @@
     <MESSAGE value="Fixed bugs of Docs design" />
     <MESSAGE value="Separated notifications from support messages." />
     <MESSAGE value="Bug fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bug fix" />
+    <MESSAGE value="Added validator functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added validator functionality" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -232,7 +240,7 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/API$run.coverage" NAME="run Coverage Results" MODIFIED="1716879530830" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/API$run.coverage" NAME="run Coverage Results" MODIFIED="1716922771287" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Api$pin.coverage" NAME="pin Coverage Results" MODIFIED="1709622059804" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/routers/pin" />
     <SUITE FILE_PATH="coverage/Api$run.coverage" NAME="run Coverage Results" MODIFIED="1709964917887" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
