@@ -36,7 +36,7 @@ from src.routers.automation import router as automation_router
 from src.routers.setup import router as setup_router
 from src.utilities.utils import config
 
-app = FastAPI(title="Spark API", docs_url='/docs' if config['IsDevelopment'] else None, redoc_url='/redoc' if config['IsDevelopment'] else None)
+app = FastAPI(title="Spark API", docs_url='/docs', redoc_url='/redoc' if config['IsDevelopment'] else None)
 
 app.add_middleware(
     CORSMiddleware,
