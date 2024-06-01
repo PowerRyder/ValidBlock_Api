@@ -90,3 +90,23 @@ async def update_request_for_validator(request_id: int, status: str, remarks: st
     except Exception as e:
         print(e.__str__())
         return {'success': False, 'message': get_error_message(e)}
+
+
+@router.get('/update_validator_package_discount_percentage', dependencies=[Depends(RightsChecker([245]))])
+async def update_validator_package_discount_percentage(percentage: float, token_payload: any = Depends(get_current_user)):
+    try:
+        dataset = data_access.update_validator_package_discount_percentage(percentage=percentage, by_user_id=token_payload["user_id"])
+        # print(dataset)
+        if len(dataset) > 0 and len(dataset['rs']):
+            ds = dataset['rs']
+            if ds.iloc[0].loc["success"]:
+
+                return {'success': True, 'message': ds.iloc[0].loc["message"]}
+
+            return {'success': False, 'message': ds.iloc[0].loc["message"]}
+
+        return {'success': False, 'message': DATABASE_CONNECTION_ERROR}
+
+    except Exception as e:
+        print(e.__str__())
+        return {'success': False, 'message': get_error_message(e)}

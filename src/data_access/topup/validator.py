@@ -25,3 +25,9 @@ def update_request_for_validator(request_id: int, status: str, remarks: str, by_
     res = execute_query("call usp_update_validator_request_status(_request_id => %s, _status => %s, _remarks => %s, _by_admin_user_id => %s)",
                         (request_id, status, remarks, by_user_id))
     return res
+
+
+def update_validator_package_discount_percentage(percentage: float, by_user_id: str):
+    res = execute_query("call usp_update_validator_package_discount_percentage(_percentage => %s, _by_admin_id => %s)",
+                        (percentage, by_user_id))
+    return res

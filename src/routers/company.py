@@ -2,7 +2,7 @@ import json
 
 from fastapi import APIRouter
 from src.constants.messages import DATABASE_CONNECTION_ERROR, OK
-from src.utilities.utils import data_frame_to_json_object, get_error_message, company_details, company_datasets, config
+from src.utilities.utils import data_frame_to_json_object, get_error_message, config, execute_query
 
 router = APIRouter(
     prefix="/company",
@@ -13,6 +13,9 @@ router = APIRouter(
 @router.get('/details')
 def get_details():
     try:
+        company_datasets = execute_query("call usp_get_company_details()")
+        company_details = company_datasets['rs_company_details'].iloc[0]
+
         dataset = company_details.to_dict()
 
         with open(config['ERC20']['AbiJsonPath']) as f:
