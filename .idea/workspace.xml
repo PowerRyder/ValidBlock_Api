@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1b713d2-e276-41d4-afaf-6cba15077c11" name="Changes" comment="Add admin apis for validator">
+    <list default="true" id="b1b713d2-e276-41d4-afaf-6cba15077c11" name="Changes" comment="Added validator package discount">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/routes.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/routes.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data_access/topup/validator.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_access/topup/validator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routers/company.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/company.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routers/topup/validator.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/topup/validator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data_access/topup/crypto_deposit.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_access/topup/crypto_deposit.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routers/topup/crypto_deposit.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/topup/crypto_deposit.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/schemas/Topup.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/schemas/Topup.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +111,7 @@
       <workItem from="1709820508555" duration="16948000" />
       <workItem from="1716813337888" duration="5038000" />
       <workItem from="1716882454790" duration="4906000" />
-      <workItem from="1717000268396" duration="5491000" />
+      <workItem from="1717000268396" duration="10138000" />
     </task>
     <task id="LOCAL-00001" summary="Test from Pycharm">
       <option name="closed" value="true" />
@@ -218,7 +217,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717158555853</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Added validator package discount">
+      <option name="closed" value="true" />
+      <created>1717234282224</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1717234282224</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -245,7 +252,8 @@
     <MESSAGE value="Added validator functionality" />
     <MESSAGE value="Email content change on verify email" />
     <MESSAGE value="Add admin apis for validator" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add admin apis for validator" />
+    <MESSAGE value="Added validator package discount" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added validator package discount" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -259,7 +267,7 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/API$run.coverage" NAME="run Coverage Results" MODIFIED="1717231578638" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/API$run.coverage" NAME="run Coverage Results" MODIFIED="1717303627887" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Api$pin.coverage" NAME="pin Coverage Results" MODIFIED="1709622059804" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/routers/pin" />
     <SUITE FILE_PATH="coverage/Api$run.coverage" NAME="run Coverage Results" MODIFIED="1709964917887" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>

@@ -49,6 +49,7 @@ class GetCryptoDeposit(BaseModel):
     date_to: str = ''
     request_id: str = ''
     txn_hash: str = ''
+    input_txn_status: str = 'All'
     page_index: int = 0
     page_size: int = 100
 
