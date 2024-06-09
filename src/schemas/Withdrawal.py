@@ -29,3 +29,9 @@ class WithdrawalRequestApproveRejectDataItem(BaseModel):
     Status: str = VALIDATORS.STATUS_APPROVED_REJECTED
     TxnHash: str = ''
 
+
+class WithdrawPrinciple(BaseModel):
+    token_id: int = 0
+    remarks: str = ''
+    two_factor_auth_request_id: str = ''
+    wallet_address: str = ''

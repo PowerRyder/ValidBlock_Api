@@ -51,7 +51,7 @@ async def vote_for_validator(validator_user_id: str, token_payload: any = Depend
         return {'success': False, 'message': get_error_message(e)}
 
 
-@router.post('/get_requests_for_validator', dependencies=[Depends(RightsChecker([245]))])
+@router.post('/get_requests_for_validator', dependencies=[Depends(RightsChecker([245, 11]))])
 async def get_requests_for_validator(req: GetRequestsForValidator, token_payload: any = Depends(get_current_user)):
     try:
         match_exact_user_id = False
@@ -61,9 +61,9 @@ async def get_requests_for_validator(req: GetRequestsForValidator, token_payload
 
         dataset = data_access.get_requests_for_validator(req=req, match_exact_user_id=match_exact_user_id)
         # print(dataset)
-        if len(dataset) > 0 and len(dataset['rs']):
+        if len(dataset) > 0:
             ds = dataset['rs']
-            return {'success': True, 'message': ds.iloc[0].loc["message"], 'data': data_frame_to_json_object(ds), 'data_count': int(dataset['rs1'].iloc[0].loc["total_records"])}
+            return {'success': True, 'message': OK, 'data': data_frame_to_json_object(ds), 'data_count': int(dataset['rs1'].iloc[0].loc["total_records"])}
 
         return {'success': False, 'message': DATABASE_CONNECTION_ERROR}
 
@@ -72,7 +72,7 @@ async def get_requests_for_validator(req: GetRequestsForValidator, token_payload
         return {'success': False, 'message': get_error_message(e)}
 
 
-@router.get('/update_request_for_validator', dependencies=[Depends(RightsChecker([245]))])
+@router.get('/update_request_for_validator', dependencies=[Depends(RightsChecker([245, 11]))])
 async def update_request_for_validator(request_id: int, status: str, remarks: str, token_payload: any = Depends(get_current_user)):
     try:
         dataset = data_access.update_request_for_validator(request_id=request_id, status=status, remarks=remarks, by_user_id=token_payload["user_id"])
@@ -92,7 +92,7 @@ async def update_request_for_validator(request_id: int, status: str, remarks: st
         return {'success': False, 'message': get_error_message(e)}
 
 
-@router.get('/update_validator_package_discount_percentage', dependencies=[Depends(RightsChecker([245]))])
+@router.get('/update_validator_package_discount_percentage', dependencies=[Depends(RightsChecker([245, 11]))])
 async def update_validator_package_discount_percentage(percentage: float, token_payload: any = Depends(get_current_user)):
     try:
         dataset = data_access.update_validator_package_discount_percentage(percentage=percentage, by_user_id=token_payload["user_id"])
