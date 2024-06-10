@@ -52,7 +52,7 @@ async def withdraw_fund(req: WithdrawFund, token_payload: any = Depends(get_curr
 
             token_rate = get_token_rate(base_token_symbol=from_token_symbol, quote_token_symbol=withdrawal_token_symbol)
 
-        dataset = data_access.withdraw_fund(req=req, user_id=user_id, user_type=user_type, token_rate=token_rate)
+        dataset = data_access.withdraw_fund(req=req, user_id=user_id, user_type=user_type, token_rate=token_rate['rate'])
         if len(dataset) > 0:
             ds = dataset['rs']
 
@@ -63,16 +63,16 @@ async def withdraw_fund(req: WithdrawFund, token_payload: any = Depends(get_curr
                 if data['success']:
                     d = data['data']
                     if d['success_status']:
-                        data_dicts = json.dumps([{"RequestId": dr.loc["request_id"], "Remarks": "", "Status": "Success", "TxnHash": d['transaction_hash']}])
+                        data_dicts = json.dumps([{"RequestId": int(dr.loc["request_id"]), "Remarks": "", "Status": "Success", "TxnHash": d['transaction_hash']}])
                         # # print(data_dicts)
                         data_access.update_withdrawal_requests_status(by_user_id='', data_dicts=data_dicts)
                         return {'success': True, 'message': 'Withdrawal Successful!'}
 
-                    data_dicts = json.dumps([{"RequestId": dr.loc["request_id"], "Remarks": "", "Status": "Failed", "TxnHash": d['transaction_hash']}])
+                    data_dicts = json.dumps([{"RequestId": int(dr.loc["request_id"]), "Remarks": "", "Status": "Failed", "TxnHash": d['transaction_hash']}])
                     data_access.update_withdrawal_requests_status(by_user_id='', data_dicts=data_dicts)
                     return {'success': False, 'message': 'Withdrawal failed!'}
 
-                data_dicts = json.dumps([{"RequestId": dr.loc["request_id"], "Remarks": "", "Status": "Failed", "TxnHash": ''}])
+                data_dicts = json.dumps([{"RequestId": int(dr.loc["request_id"]), "Remarks": "", "Status": "Failed", "TxnHash": ''}])
                 data_access.update_withdrawal_requests_status(by_user_id='', data_dicts=data_dicts)
                 return {'success': False, 'message': 'Withdrawal failed!'}
 

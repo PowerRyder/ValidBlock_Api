@@ -8,7 +8,7 @@ from src.business_layer.security.RightsChecker import RightsChecker
 from src.constants.messages import DATABASE_CONNECTION_ERROR, OK
 from src.data_access.withdrawal import principle_withdrawal as data_access
 from src.data_access import misc as misc_data_access
-from src.schemas.Withdrawal import WithdrawPrinciple
+from src.schemas.Withdrawal import WithdrawPrinciple, GetPrincipleWithdrawalRequests
 from src.utilities.aes import aes
 from src.utilities.utils import data_frame_to_json_object, get_error_message, company_datasets, company_details, config
 
@@ -34,7 +34,7 @@ async def get_details_for_principle_withdrawal(token_payload: any = Depends(get_
         return {'success': False, 'message': get_error_message(e)}
 
 
-@router.get('/withdraw_principle', dependencies=[Depends(RightsChecker([112, 113, 114]))])
+@router.post('/withdraw_principle', dependencies=[Depends(RightsChecker([112, 113, 114]))])
 async def withdraw_principle(req: WithdrawPrinciple, token_payload: any = Depends(get_current_user)):
     try:
 
@@ -49,13 +49,13 @@ async def withdraw_principle(req: WithdrawPrinciple, token_payload: any = Depend
         dataset = misc_data_access.get_supported_cryptos(id=req.token_id)
         # print(dataset)
         if len(dataset) > 0 and len(dataset['rs']) > 0:
-            withdrawal_token_symbol = dataset['ds'].iloc[0]['symbol']
+            withdrawal_token_symbol = dataset['rs'].iloc[0]['symbol']
 
             from_token_symbol = company_details['currency_symbol']
 
             token_rate = get_token_rate(base_token_symbol=from_token_symbol, quote_token_symbol=withdrawal_token_symbol)
 
-        dataset = data_access.withdraw_principle(req=req, user_id=user_id, token_rate=token_rate)
+        dataset = data_access.withdraw_principle(req=req, user_id=user_id, token_rate=token_rate['rate'])
         if len(dataset) > 0 and len(dataset['rs']):
             dr = dataset['rs'].iloc[0]
 
@@ -75,6 +75,28 @@ async def withdraw_principle(req: WithdrawPrinciple, token_payload: any = Depend
                 return {'success': False, 'message': 'Withdrawal failed!'}
 
             return {'success': False, 'message': dr.loc["message"]}
+
+        return {'success': False, 'message': DATABASE_CONNECTION_ERROR}
+
+    except Exception as e:
+        print(e.__str__())
+        return {'success': False, 'message': get_error_message(e)}
+
+
+@router.post('/get_principle_withdrawal_requests', dependencies=[Depends(RightsChecker([112, 113, 114]))])
+async def get_principle_withdrawal_requests(req: GetPrincipleWithdrawalRequests, token_payload: any = Depends(get_current_user)):
+    try:
+        match_exact_user_id = False
+
+        if token_payload["role"] != 'Admin':
+            req.user_id = token_payload["user_id"]
+            match_exact_user_id = True
+
+        dataset = data_access.get_principle_withdrawal_requests(req=req, match_exact_user_id=match_exact_user_id)
+        if len(dataset) > 0:
+            ds = dataset['rs']
+            return {'success': True, 'message': OK, 'data': data_frame_to_json_object(ds),
+                    'data_count': int(dataset['rs1'].iloc[0].loc["total_records"])}
 
         return {'success': False, 'message': DATABASE_CONNECTION_ERROR}
 

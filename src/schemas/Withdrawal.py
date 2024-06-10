@@ -35,3 +35,13 @@ class WithdrawPrinciple(BaseModel):
     remarks: str = ''
     two_factor_auth_request_id: str = ''
     wallet_address: str = ''
+
+
+
+class GetPrincipleWithdrawalRequests(BaseModel):
+    user_id: str
+    date_from: str = ''
+    date_to: str = ''
+    status: str = 'All'
+    page_index: int
+    page_size: int
