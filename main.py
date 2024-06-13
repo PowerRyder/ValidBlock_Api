@@ -5,7 +5,6 @@ from fastapi.staticfiles import StaticFiles
 
 from src.routers.pin import pin
 
-from src.utilities import aes
 from src.utilities.helper_utils import compile_email_formats_mjml, generate_routes_json
 from src.routers import company, misc, encrypt_decrypt
 from fastapi.exceptions import RequestValidationError
@@ -32,6 +31,7 @@ from src.routers.repurchase import router as repurchase_router
 from src.routers.notifications import router as notifications_router
 from src.routers.arbitrage_trade import router as arbitrage_trade_router
 from src.routers.dapp import router as dapp_router
+from src.routers.validator import router as validator_router
 from src.routers.automation import router as automation_router
 from src.routers.setup import router as setup_router
 from src.utilities.utils import config
@@ -86,6 +86,7 @@ app.include_router(misc.router)
 app.include_router(automation_router)
 app.include_router(arbitrage_trade_router)
 app.include_router(dapp_router)
+app.include_router(validator_router)
 
 if config['IsDevelopment']:
     app.include_router(setup_router)

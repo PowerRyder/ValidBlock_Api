@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="864628d7-1e25-43ef-bc1a-2d5d6b6dd2da" name="Changes" comment="Added Principle Withdrawal">
-      <change afterPath="$PROJECT_DIR$/src/data_access/automation/validator_transactions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routers/automation/validator_transactions.py" afterDir="false" />
+    <list default="true" id="864628d7-1e25-43ef-bc1a-2d5d6b6dd2da" name="Changes" comment="Added routes to fetch validator transactions">
+      <change afterPath="$PROJECT_DIR$/src/data_access/validator/transactions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routers/validator/transactions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/routes.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/routes.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,19 +34,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "dev",
+    "last_opened_file_path": "D:/Projects/MyProjects/Client/ValidBlock/API/src/data_access",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -60,7 +60,7 @@
       <workItem from="1717908675627" duration="12109000" />
       <workItem from="1718254370416" duration="837000" />
       <workItem from="1718269828631" duration="4488000" />
-      <workItem from="1718308766812" duration="3297000" />
+      <workItem from="1718308766812" duration="4508000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed withdrawal">
       <option name="closed" value="true" />
@@ -78,7 +78,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718009538275</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added routes to fetch validator transactions">
+      <option name="closed" value="true" />
+      <created>1718312588525</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1718312588526</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -87,7 +95,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Fixed withdrawal" />
     <MESSAGE value="Added Principle Withdrawal" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Principle Withdrawal" />
+    <MESSAGE value="Added routes to fetch validator transactions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added routes to fetch validator transactions" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/API$utils.coverage" NAME="utils Coverage Results" MODIFIED="1718269873160" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/utilities" />
