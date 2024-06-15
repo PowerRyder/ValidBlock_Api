@@ -66,6 +66,7 @@ def check_for_new_deposits():
     try:
         req = GetCryptoDeposit()
         req.input_txn_status = 'Pending'
+        req.request_id = 0
         pending_dataset = data_access.get_crypto_deposits_history(req=req)
 
         deposit_request_ids = ''
