@@ -45,7 +45,7 @@ def fetch_solana_validator_transactions(key: str):
                 "method": "getSignaturesForAddress",
                 "params": [
                     "7QQGNm3ptwinipDCyaCF7jY5katgmFUu1ieP2f7nwLpE",  # Replace with actual Solana address
-                    {"limit": 1000}
+                    {"limit": 100}
                 ]
             }
             response = requests.post(url, json=payload, headers=headers)

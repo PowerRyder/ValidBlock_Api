@@ -13,18 +13,18 @@ router = APIRouter(
 @router.get('/details')
 def get_details(request: Request):
     try:
-        url = dict(request.scope["headers"]).get(b"referer", b"").decode()  # request.base_url.__str__()
-
-        if request.client is None:
-            client_ip_address = request.headers['x-forwarded-for']
-        else:
-            client_ip_address = request.client.host
-
-        ip_details = None
-        if not config['IsDevelopment']:
-            ip_details = json.loads(get_ip_info(client_ip_address))
-            if ip_details['country'] == "AE":
-                raise "Not allowed"
+        # url = dict(request.scope["headers"]).get(b"referer", b"").decode()  # request.base_url.__str__()
+        #
+        # if request.client is None:
+        #     client_ip_address = request.headers['x-forwarded-for']
+        # else:
+        #     client_ip_address = request.client.host
+        #
+        # ip_details = None
+        # if not config['IsDevelopment']:
+        #     ip_details = json.loads(get_ip_info(client_ip_address))
+        #     if ip_details['country'] == "AE":
+        #         raise "Not allowed"
 
 
         company_datasets = execute_query("call usp_get_company_details()")
