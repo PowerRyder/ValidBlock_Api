@@ -44,7 +44,8 @@ def dashboard_details(token_payload: any = Depends(get_current_user)):
                         'data': data_frame_to_json_object(ds),
                         'income': data_frame_to_json_object(dataset['rs1']),
                         'wallet_balances': data_frame_to_json_object(dataset['rs2']),
-                        'news': data_frame_to_json_object(dataset['rs_news'])}
+                        'news': data_frame_to_json_object(dataset['rs_news']),
+                        'rank_details': data_frame_to_json_object(dataset['rs_rank'])}
             
             return {'success': False, 'message': INVALID_USER_ID }
     except Exception as e:
@@ -62,6 +63,21 @@ def dashboard_chart_details(duration: str = VALIDATORS.CHART_DURATION, token_pay
             return {'success': True, 'message': OK, 'data': data_frame_to_json_object(dataset['rs'])}
 
         return {'success': False, 'message': DATABASE_CONNECTION_ERROR}
+    except Exception as e:
+        print(e.__str__())
+        return {'success': False, 'message': get_error_message(e)}
+
+
+@router.get('/rank_details', dependencies=[Depends(RightsChecker([10, 11, 59]))])
+def rank_details(token_payload: any = Depends(get_current_user)):
+    try:
+        dataset = data_access.get_user_rank_details(user_id=token_payload["user_id"])
+        if len(dataset) > 0 and len(dataset['rs']):
+            ds = dataset['rs']
+            return {'success': True, 'message': OK, 'data': data_frame_to_json_object(ds)}
+
+        return {'success': False, 'message': DATABASE_CONNECTION_ERROR }
+
     except Exception as e:
         print(e.__str__())
         return {'success': False, 'message': get_error_message(e)}

@@ -45,7 +45,8 @@ def execute_query(query, params=None) -> dict[str, pd.DataFrame]:
                     
                     result[_cursor] = df
                 except Exception as e:
-                    pass
+                    print(e.__str__())
+                    get_error_message(e)
         else:
             pass
         
@@ -53,6 +54,7 @@ def execute_query(query, params=None) -> dict[str, pd.DataFrame]:
         conn.commit()
     except (Exception, psycopg2.DatabaseError) as error:
         print(error)
+        get_error_message(error)
         conn.rollback()
     finally:
         if conn is not None:
