@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="864628d7-1e25-43ef-bc1a-2d5d6b6dd2da" name="Changes" comment="Bug fix">
+    <list default="true" id="864628d7-1e25-43ef-bc1a-2d5d6b6dd2da" name="Changes" comment="Added rank details">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/routes.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/routes.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data_access/user/details.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_access/user/details.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routers/user/details.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/user/details.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utilities/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilities/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/app/green.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/app/green1.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +95,8 @@
       <workItem from="1718254370416" duration="837000" />
       <workItem from="1718269828631" duration="4488000" />
       <workItem from="1718308766812" duration="8950000" />
-      <workItem from="1718731554705" duration="4012000" />
+      <workItem from="1718731554705" duration="5627000" />
+      <workItem from="1718909990542" duration="1252000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed withdrawal">
       <option name="closed" value="true" />
@@ -171,7 +170,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718518771618</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Added rank details">
+      <option name="closed" value="true" />
+      <created>1718876254427</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1718876254427</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -183,11 +190,12 @@
     <MESSAGE value="Added routes to fetch validator transactions" />
     <MESSAGE value="Added routes to get validator transactions" />
     <MESSAGE value="Bug fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bug fix" />
+    <MESSAGE value="Added rank details" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added rank details" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/API$utils.coverage" NAME="utils Coverage Results" MODIFIED="1718269873160" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/utilities" />
-    <SUITE FILE_PATH="coverage/API$run.coverage" NAME="run Coverage Results" MODIFIED="1718824724492" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/API$run.coverage" NAME="run Coverage Results" MODIFIED="1718910013559" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/API$crypto_deposit.coverage" NAME="crypto_deposit Coverage Results" MODIFIED="1718305550922" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/routers/topup" />
     <SUITE FILE_PATH="coverage/API$login.coverage" NAME="login Coverage Results" MODIFIED="1718460899864" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/routers/accounts" />
     <SUITE FILE_PATH="coverage/API$principle_withdrawal.coverage" NAME="principle_withdrawal Coverage Results" MODIFIED="1717999649441" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/routers/withdrawal" />
