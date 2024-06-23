@@ -31,3 +31,9 @@ def update_validator_package_discount_percentage(percentage: float, by_user_id: 
     res = execute_query("call usp_update_validator_package_discount_percentage(_percentage => %s, _by_admin_id => %s)",
                         (percentage, by_user_id))
     return res
+
+
+def update_coin_package_discount_percentage(percentage: float, by_user_id: str):
+    res = execute_query("call usp_update_coin_package_discount_percentage(_percentage => %s, _by_admin_id => %s)",
+                        (percentage, by_user_id))
+    return res

@@ -29,6 +29,7 @@ class TopupDetailsRequest(BaseModel):
     side: str = 'All'
     level: int = 0
     package_id: int = 0
+    package_type: str = ''
     topup_type: str = 'All'
     by_user_id: str = ''
     by_user_type: str = VALIDATORS.USER_TYPE_ALL

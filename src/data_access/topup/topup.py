@@ -15,8 +15,8 @@ def topup_from_wallet(req: TopupFromWalletRequest, by_user_id: str, by_user_type
 
 
 def topup_details(req: TopupDetailsRequest, match_exact_user_id: bool = False, match_exact_by_user_id: bool = False):
-    res = execute_query("call usp_get_topup_details(_user_id => %s, _match_exact_user_id => %s, _between_date => %s::timestamptz[], _side => %s, _level => %s, _package_id => %s, _topup_type => %s, _topup_for => %s, _by_user_id => %s, _by_user_type => %s, _match_exact_by_user_id => %s, _pin_number => %s, _page_index => %s, _page_size => %s)",
-                        (req.user_id, match_exact_user_id, [req.topup_date_from if req.topup_date_from!='' else None, req.topup_date_to if req.topup_date_to!='' else None], req.side, req.level, req.package_id, req.topup_type, req.topup_for, req.by_user_id, req.by_user_type, match_exact_by_user_id, req.pin_number, req.page_index, req.page_size))
+    res = execute_query("call usp_get_topup_details(_user_id => %s, _match_exact_user_id => %s, _between_date => %s::timestamptz[], _side => %s, _level => %s, _package_id => %s, _package_type => %s, _topup_type => %s, _topup_for => %s, _by_user_id => %s, _by_user_type => %s, _match_exact_by_user_id => %s, _pin_number => %s, _page_index => %s, _page_size => %s)",
+                        (req.user_id, match_exact_user_id, [req.topup_date_from if req.topup_date_from!='' else None, req.topup_date_to if req.topup_date_to!='' else None], req.side, req.level, req.package_id, req.package_type, req.topup_type, req.topup_for, req.by_user_id, req.by_user_type, match_exact_by_user_id, req.pin_number, req.page_index, req.page_size))
     return res
 
 
