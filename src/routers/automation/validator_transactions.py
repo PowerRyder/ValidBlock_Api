@@ -31,6 +31,27 @@ def fetch_bsc_validator_transactions(key: str):
         return {'success': False, 'message': get_error_message(e)}
 
 
+@router.get('/fetch_polygon_validator_transactions')
+def fetch_polygon_validator_transactions(key: str):
+    try:
+        if key == config['AutomationKey']:
+            url = f'https://api.polygonscan.com/api?module=account&action=getminedblocks&address=0x1B0840519a581f3779D0a10B77593d6D3894a76a&blocktype=blocks&page=1&offset=20&sort=desc&apikey=3SB2XW22QI625JPAXMN9MGMA12I1N12RQR'
+
+            response = requests.get(url)
+            if response.status_code == 200:
+                blocks = response.json().get('result')
+
+                txn_dict = [{'txn_hash': '', 'block_number': tx['blockNumber'], 'timestamp': tx['timeStamp'], 'value': str(Decimal(tx['blockReward'])/(10**18))} for tx in blocks]
+
+                # print(json.dumps(txn_dict))
+                data_access.save_polygon_validator_transactions(transactions=json.dumps(txn_dict))
+            return {'success': True, 'message': 'Transactions saved successfully!'}
+        return {'success': False, 'message': INVALID_AUTOMATION_KEY}
+    except Exception as e:
+        print(e.__str__())
+        return {'success': False, 'message': get_error_message(e)}
+
+
 @router.get('/fetch_solana_validator_transactions')
 def fetch_solana_validator_transactions(key: str):
     try:
