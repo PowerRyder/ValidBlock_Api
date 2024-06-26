@@ -33,14 +33,18 @@
             <td>{{user_id}}</td>
           </tr>
           <tr style="border-bottom:1px solid #ecedee;text-align:center;padding:15px 0;">
+            <td>Password</td>
+            <td>{{password}}</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ecedee;text-align:center;padding:15px 0; display: none;">
             <td>Name</td>
             <td>{{user_name}}</td>
           </tr>
-          <tr style="border-bottom:1px solid #ecedee;text-align:center;padding:15px 0;">
+          <tr style="border-bottom:1px solid #ecedee;text-align:center;padding:15px 0; display: none;">
             <td>Joining Amount</td>
             <td>{{joining_amount}}</td>
           </tr>
-          <tr style="border-bottom:1px solid #ecedee;text-align:center;padding:15px 0;">
+          <tr style="border-bottom:1px solid #ecedee;text-align:center;padding:15px 0; display: none;">
             <td>Referred by</td>
             <td>{{sponsor_id}}</td>
           </tr>

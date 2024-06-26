@@ -106,6 +106,7 @@ def send_joining_mail_and_sms(id_enc: str):
                 if not ds.iloc[0].loc["is_joining_mail_sent"]:
                     pdf_bytes = get_welcome_letter_pdf_bytes(ds.iloc[0].loc["user_id"])
                     is_email_sent, sent_message = send_joining_mail(user_id=ds.iloc[0].loc['user_id'],
+                                                                    password=ds.iloc[0].loc['password'],
                                                                     user_name=ds.iloc[0].loc['name'],
                                                                     email_id=email_id,
                                                                     joining_amount=addCurrencySymbol(str(round(ds.iloc[0].loc['joining_amount'], int(company_details['round_off_digits'])))),

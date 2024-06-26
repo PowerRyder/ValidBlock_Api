@@ -1,3 +1,4 @@
+import json
 
 from fastapi import APIRouter, Depends
 
@@ -8,7 +9,8 @@ from src.business_layer.security.RightsChecker import RightsChecker
 from src.constants.messages import DATABASE_CONNECTION_ERROR, OK
 from src.data_access.withdrawal import principle_withdrawal as data_access
 from src.data_access import misc as misc_data_access
-from src.schemas.Withdrawal import WithdrawPrinciple, GetPrincipleWithdrawalRequests
+from src.schemas.Withdrawal import WithdrawPrinciple, GetPrincipleWithdrawalRequests, \
+    WithdrawalRequestApproveRejectDataItem
 from src.utilities.aes import aes
 from src.utilities.utils import data_frame_to_json_object, get_error_message, company_datasets, company_details, config
 
@@ -60,19 +62,20 @@ async def withdraw_principle(req: WithdrawPrinciple, token_payload: any = Depend
             dr = dataset['rs'].iloc[0]
 
             if dr.loc["success"]:
-                data = send_matic(from_private_key=config['PvKey'], to_address=req.wallet_address, amount=dr.loc["amount_withdrawn"])  # 0x38645362C36AD2C21c3661088E87cC1d608D9Ffc
-
-                if data['success']:
-                    d = data['data']
-                    if d['success_status']:
-                        data_access.update_principle_withdrawal_request_status(request_id=dr.loc["request_id"], status='Success', txn_hash=d['transaction_hash'])
-                        return {'success': True, 'message': 'Withdrawal Successful!'}
-
-                    data_access.update_principle_withdrawal_request_status(request_id=dr.loc["request_id"], status='Failed', txn_hash=d['transaction_hash'])
-                    return {'success': False, 'message': 'Withdrawal failed!'}
-
-                data_access.update_principle_withdrawal_request_status(request_id=dr.loc["request_id"], status='Failed', txn_hash='')
-                return {'success': False, 'message': 'Withdrawal failed!'}
+                return {'success': True, 'message': dr.loc["message"]}
+                # data = send_matic(from_private_key=config['PvKey'], to_address=req.wallet_address, amount=dr.loc["amount_withdrawn"])  # 0x38645362C36AD2C21c3661088E87cC1d608D9Ffc
+                #
+                # if data['success']:
+                #     d = data['data']
+                #     if d['success_status']:
+                #         data_access.update_principle_withdrawal_request_status(request_id=dr.loc["request_id"], status='Success', txn_hash=d['transaction_hash'])
+                #         return {'success': True, 'message': 'Withdrawal Successful!'}
+                #
+                #     data_access.update_principle_withdrawal_request_status(request_id=dr.loc["request_id"], status='Failed', txn_hash=d['transaction_hash'])
+                #     return {'success': False, 'message': 'Withdrawal failed!'}
+                #
+                # data_access.update_principle_withdrawal_request_status(request_id=dr.loc["request_id"], status='Failed', txn_hash='')
+                # return {'success': False, 'message': 'Withdrawal failed!'}
 
             return {'success': False, 'message': dr.loc["message"]}
 
@@ -97,6 +100,41 @@ async def get_principle_withdrawal_requests(req: GetPrincipleWithdrawalRequests,
             ds = dataset['rs']
             return {'success': True, 'message': OK, 'data': data_frame_to_json_object(ds),
                     'data_count': int(dataset['rs1'].iloc[0].loc["total_records"])}
+
+        return {'success': False, 'message': DATABASE_CONNECTION_ERROR}
+
+    except Exception as e:
+        print(e.__str__())
+        return {'success': False, 'message': get_error_message(e)}
+
+
+@router.get('/update_principle_withdrawal_requests_status', dependencies=[Depends(RightsChecker([113]))])
+async def update_principle_withdrawal_requests_status(request_id: int, status: str, remarks: str = '', token_payload: any = Depends(get_current_user)):
+    try:
+        # start_time = time.time()
+        user_id = token_payload["user_id"]
+
+        req = GetPrincipleWithdrawalRequests()
+        # print(data_dicts)
+        dataset = data_access.get_principle_withdrawal_requests(req=req, request_id=request_id)
+
+        if len(dataset) > 0:
+            dr = dataset['rs'].iloc[0]
+
+            if status == 'Approved':
+                data = send_matic(from_private_key=config['PvKey'], to_address=dr['token_withdrawal_address'], amount=dr.loc["amount_withdrawn"])  # 0x38645362C36AD2C21c3661088E87cC1d608D9Ffc
+
+                if data['success']:
+                    d = data['data']
+                    if d['success_status']:
+                        data_access.update_principle_withdrawal_request_status(request_id=dr.loc["request_id"], status=status, txn_hash=d['transaction_hash'], remarks=remarks)
+                        return {'success': True, 'message': 'Withdrawal Successful!'}
+
+                return {'success': False, 'message': 'Withdrawal failed!'}
+
+            else:
+                data_access.update_principle_withdrawal_request_status(request_id=dr.loc["request_id"], status=status, txn_hash='', remarks=remarks)
+                return {'success': True, 'message': 'Withdrawal rejected!'}
 
         return {'success': False, 'message': DATABASE_CONNECTION_ERROR}
 

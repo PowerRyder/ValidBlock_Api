@@ -15,14 +15,14 @@ def withdraw_principle(req: WithdrawPrinciple, user_id: str, token_rate: Decimal
     return res
 
 
-def update_principle_withdrawal_request_status(request_id: int, status: str, txn_hash: str):
-    res = execute_query("call usp_update_principle_withdrawal_request_status(_request_id => %s, _status => %s, _txn_hash => %s)",
-    (int(request_id), status, txn_hash))
+def update_principle_withdrawal_request_status(request_id: int, status: str, txn_hash: str, remarks: str):
+    res = execute_query("call usp_update_principle_withdrawal_request_status(_request_id => %s, _status => %s, _txn_hash => %s, _remarks => %s)",
+    (int(request_id), status, txn_hash, remarks))
     return res
 
 
-def get_principle_withdrawal_requests(req: GetPrincipleWithdrawalRequests, match_exact_user_id: bool):
-    res = execute_query("call usp_get_principle_withdrawal_requests(_user_id => %s, _match_exact_user_id => %s, _between_date => %s::timestamptz[], _status => %s, _page_index => %s, _page_size => %s)",
-                        (req.user_id, match_exact_user_id, [req.date_from if req.date_from!='' else None, req.date_to if req.date_to!='' else None], req.status, req.page_index, req.page_size))
+def get_principle_withdrawal_requests(req: GetPrincipleWithdrawalRequests, request_id: int = 0, match_exact_user_id: bool = False):
+    res = execute_query("call usp_get_principle_withdrawal_requests(_user_id => %s, _match_exact_user_id => %s, _between_date => %s::timestamptz[], _status => %s, _request_id => %s, _page_index => %s, _page_size => %s)",
+                        (req.user_id, match_exact_user_id, [req.date_from if req.date_from!='' else None, req.date_to if req.date_to!='' else None], req.status, request_id, req.page_index, req.page_size))
     return res
 

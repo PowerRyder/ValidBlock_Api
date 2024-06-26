@@ -2,7 +2,7 @@ from src.utilities.helper_utils import company_dict, get_email_template, send_ma
 import pystache
 
 
-def send_joining_mail(user_id, user_name, email_id, joining_amount, sponsor_id, referral_link, in_memory_files=None):
+def send_joining_mail(user_id, user_name, email_id, joining_amount, sponsor_id, referral_link, password, in_memory_files=None):
     template:str = get_email_template('registration')
     
     a = {
@@ -10,7 +10,8 @@ def send_joining_mail(user_id, user_name, email_id, joining_amount, sponsor_id, 
             'user_name':user_name,
             'joining_amount':joining_amount,
             'sponsor_id':sponsor_id,
-            'referral_link':referral_link
+            'referral_link':referral_link,
+            'password': password
         }
 
     c = a | company_dict

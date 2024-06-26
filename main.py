@@ -96,8 +96,8 @@ if config['IsDevelopment']:
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
-if config['IsDevelopment']:
-    compile_email_formats_mjml()
+# if config['IsDevelopment']:
+#     compile_email_formats_mjml()
 
 
 @app.get('/test')
