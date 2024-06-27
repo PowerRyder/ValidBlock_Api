@@ -214,7 +214,7 @@ def get_auth_otp(user_id: str = VALIDATORS.USER_ID, request_id: str=VALIDATORS.R
                 elif(option=='Email'):
                     email_id = ds.iloc[0].loc['email_id']
                     if(email_id != ''):
-                        is_sent, sent_message = send_two_factor_auth_otp_mail(user_id=user_id, user_name=ds.iloc[0].loc['name'], email_id=email_id, otp=ds.iloc[0].loc['otp'])
+                        is_sent, sent_message = send_two_factor_auth_otp_mail(user_id=user_id, user_name=ds.iloc[0].loc['name'], email_id=email_id, otp=ds.iloc[0].loc['otp'], purpose=ds.iloc[0].loc['purpose'])
                         return {'success': is_sent, 'message': OTP_SENT_SUCCESSFULLY_TO_EMAIL.format(hide_email_address(email_id=email_id)) if is_sent else sent_message}
                     
                     return {'success': False, 'message': NO_EMAIL_FOR_MAIL}

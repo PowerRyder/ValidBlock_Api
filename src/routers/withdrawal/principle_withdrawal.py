@@ -2,6 +2,7 @@ import json
 
 from fastapi import APIRouter, Depends
 
+from src.business_layer.email_service import send_withdrawal_successful_mail
 from src.business_layer.misc_service import get_token_rate
 from src.business_layer.polygon import send_matic
 from src.business_layer.security.Jwt import get_current_user
@@ -128,6 +129,7 @@ async def update_principle_withdrawal_requests_status(request_id: int, status: s
                     d = data['data']
                     if d['success_status']:
                         data_access.update_principle_withdrawal_request_status(request_id=dr.loc["request_id"], status=status, txn_hash=d['transaction_hash'], remarks=remarks)
+                        send_withdrawal_successful_mail(dr.loc["user_id"], dr.loc["name"], dr.loc["email_id"], dr.loc["amount_withdrawn"], txn_hash=d['transaction_hash'])
                         return {'success': True, 'message': 'Withdrawal Successful!'}
 
                 return {'success': False, 'message': 'Withdrawal failed!'}

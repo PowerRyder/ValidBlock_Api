@@ -111,8 +111,7 @@ def send_joining_mail_and_sms(id_enc: str):
                                                                     email_id=email_id,
                                                                     joining_amount=addCurrencySymbol(str(round(ds.iloc[0].loc['joining_amount'], int(company_details['round_off_digits'])))),
                                                                     sponsor_id=ds.iloc[0].loc['sponsor_id'],
-                                                                    referral_link=ds.iloc[0].loc['referral_link'], 
-                                                                    in_memory_files=[('Welcome_Letter.pdf', pdf_bytes)])
+                                                                    referral_link=ds.iloc[0].loc['referral_link'])
 
                 mobile_no = ds.iloc[0].loc['mobile_no']
                 if not ds.iloc[0].loc["is_joining_sms_sent"]:

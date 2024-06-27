@@ -15,7 +15,7 @@
         <mj-text font-family='Helvetica'>
           <div style='font-size:1.1em;'>
             <p>Hi {{user_name}},</p>
-            <p>Following is the link to verify your {{company_name}} account <b>{{user_id}}</b>.</p>
+            <p>Following is the link to verify your <strong>{{company_name}}</strong> account <b>{{user_id}}</b>.</p>
           </div>
         </mj-text>
         <mj-button font-family="Helvetica" href="{{verification_link}}" font-size="17px" color="white" font-weight="600" background-color="#1a73e8" color="white">

@@ -66,6 +66,7 @@ async def withdraw_fund(req: WithdrawFund, token_payload: any = Depends(get_curr
                         data_dicts = json.dumps([{"RequestId": int(dr.loc["request_id"]), "Remarks": "", "Status": "Success", "TxnHash": d['transaction_hash']}])
                         # # print(data_dicts)
                         data_access.update_withdrawal_requests_status(by_user_id='', data_dicts=data_dicts)
+                        send_withdrawal_successful_mail(dr.loc["user_id"], dr.loc["user_name"], dr.loc["email_id"], dr.loc["amount_withdrawn"], txn_hash=d['transaction_hash'])
                         return {'success': True, 'message': 'Withdrawal Successful!'}
 
                     data_dicts = json.dumps([{"RequestId": int(dr.loc["request_id"]), "Remarks": "", "Status": "Failed", "TxnHash": d['transaction_hash']}])
@@ -174,7 +175,7 @@ async def update_withdrawal_requests_status(dataItems: list[WithdrawalRequestApp
                         
                         tasks.append(send_withdrawal_successful_mail(row.loc["user_id"], row.loc["user_name"], row.loc["email_id"], amount))
                     else:
-                        send_withdrawal_rejected_sms(row.loc["user_id"], row.loc["user_name"], row.loc["mobile_no"], amount)
+                        # send_withdrawal_rejected_sms(row.loc["user_id"], row.loc["user_name"], row.loc["mobile_no"], amount)
                         
                         tasks.append(send_withdrawal_rejected_mail(row.loc["user_id"], row.loc["user_name"], row.loc["email_id"], amount))
                         

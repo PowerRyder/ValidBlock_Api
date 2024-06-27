@@ -65,13 +65,15 @@ def send_email_verification_link_mail(user_id, user_name, verification_link, ema
                                  
     return send_mail(email_id, 'Email Verification Link', template)
 
-def send_two_factor_auth_otp_mail(user_id, user_name, email_id, otp):
+
+def send_two_factor_auth_otp_mail(user_id, user_name, email_id, otp, purpose):
     template = get_email_template('two_factor_auth_otp')
     
     a = {
             'user_id':user_id,
             'user_name':user_name,
-            'otp':otp
+            'otp':otp,
+            'purpose':purpose
         }
 
     c = a | company_dict
@@ -79,6 +81,7 @@ def send_two_factor_auth_otp_mail(user_id, user_name, email_id, otp):
     template = pystache.render(template, c)
                                 
     return send_mail(email_id, 'Two Factor Authentication OTP', template)
+
 
 def send_topup_mail(user_id, user_name, email_id, package_name, pin_value, in_memory_files=None):
     template = get_email_template('topup_successful')
@@ -97,20 +100,21 @@ def send_topup_mail(user_id, user_name, email_id, package_name, pin_value, in_me
     return send_mail(email_id, 'Topup Successful', template, None, in_memory_files=in_memory_files)
 
 
-def send_withdrawal_successful_mail(user_id, user_name, email_id, amount):
+def send_withdrawal_successful_mail(user_id, user_name, email_id, amount, txn_hash):
     template = get_email_template('withdrawal_successful')
     
     a = {
-            'user_id':user_id,
-            'user_name':user_name,
-            'amount':amount
+            'user_id': user_id,
+            'user_name': user_name,
+            'amount': amount,
+            'txn_hash': txn_hash
         }
 
     c = a | company_dict
       
     template = pystache.render(template, c)
                                 
-    return send_mail_async(email_id, 'Withdrawal Successful', template)
+    return send_mail_async(email_id, 'Congratulations! Your Withdrawal Request Was Successful 🎉', template)
 
 def send_withdrawal_rejected_mail(user_id, user_name, email_id, amount):
     template = get_email_template('withdrawal_rejected')
