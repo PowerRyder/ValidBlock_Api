@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="864628d7-1e25-43ef-bc1a-2d5d6b6dd2da" name="Changes" comment="Changed email templates">
-      <change afterPath="$PROJECT_DIR$/src/data_access/income/validator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routers/income/validator.py" afterDir="false" />
+    <list default="true" id="864628d7-1e25-43ef-bc1a-2d5d6b6dd2da" name="Changes" comment="Email templates design changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/routes.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/routes.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routers/income/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/income/__init__.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,21 +33,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "dev",
-    "last_opened_file_path": "D:/Projects/MyProjects/Client/ValidBlock/API/src/data_access/income",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Projects/MyProjects/Client/ValidBlock/API/src/data_access/income&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Projects\MyProjects\Client\ValidBlock\API\src\data_access\income" />
@@ -106,7 +102,9 @@
       <workItem from="1719077495859" duration="5921000" />
       <workItem from="1719251471260" duration="2138000" />
       <workItem from="1719424540860" duration="4710000" />
-      <workItem from="1719464472613" duration="7537000" />
+      <workItem from="1719464472613" duration="8163000" />
+      <workItem from="1719913076385" duration="379000" />
+      <workItem from="1719913878637" duration="747000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed withdrawal">
       <option name="closed" value="true" />
@@ -236,7 +234,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719476212071</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Email templates design changes">
+      <option name="closed" value="true" />
+      <created>1719555078248</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1719555078248</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -254,11 +260,23 @@
     <MESSAGE value="Added polygon validator" />
     <MESSAGE value="Principle withdrawals on admin approval and stopped email compilation" />
     <MESSAGE value="Changed email templates" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed email templates" />
+    <MESSAGE value="Email templates design changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Email templates design changes" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/routers/automation/validator_transactions.py</url>
+          <line>56</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/API$utils.coverage" NAME="utils Coverage Results" MODIFIED="1718269873160" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/utilities" />
-    <SUITE FILE_PATH="coverage/API$run.coverage" NAME="run Coverage Results" MODIFIED="1719476231326" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/API$run.coverage" NAME="run Coverage Results" MODIFIED="1719913154992" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/API$crypto_deposit.coverage" NAME="crypto_deposit Coverage Results" MODIFIED="1718305550922" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/routers/topup" />
     <SUITE FILE_PATH="coverage/API$login.coverage" NAME="login Coverage Results" MODIFIED="1718460899864" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/routers/accounts" />
     <SUITE FILE_PATH="coverage/API$principle_withdrawal.coverage" NAME="principle_withdrawal Coverage Results" MODIFIED="1717999649441" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/routers/withdrawal" />

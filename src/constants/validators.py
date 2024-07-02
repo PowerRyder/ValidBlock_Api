@@ -15,8 +15,8 @@ PASSWORD                    = Query(min_length=0, max_length=30)
 OTP                         = Query(min_length=6, max_length=9, regex="^\d+$")
 
 CONTACT_TYPE                = Query(regex="^(Mobile|Email)$")
-EMAIL_OR_MOBILE_NUMBER      = Query(regex="^([a-zA-Z][a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+)|(\d{9,15})$")
-EMAIL_ID                    = Query(default='', regex="^[a-zA-Z][a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$")
+EMAIL_OR_MOBILE_NUMBER      = Query(regex="^([a-zA-Z0-9_][a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+)|(\d{9,15})$")
+EMAIL_ID                    = Query(default='', regex="^[a-zA-Z0-9_][a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$")
 MOBILE_NO                   = Query(default='', min_length=9, max_length=15, regex=r'^\d{9,15}$')
 PIN_CODE                    = Query(default='', min_length=5, max_length=10, regex=r'^\d{5,10}$')
 
