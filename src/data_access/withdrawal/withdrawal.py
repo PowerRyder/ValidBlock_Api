@@ -6,7 +6,7 @@ from src.utilities.utils import execute_query
 
 def withdraw_fund(req: WithdrawFund, user_id: str, user_type: str, token_rate: Decimal):
     res = execute_query("call usp_withdraw_fund(_user_id => %s, _user_type => %s,_wallet_id => %s, _amount => %s, "
-                        "_remarks => %s, _two_factor_auth_request_id => %s, _token_id => %s, _token_rate > %s, "
+                        "_remarks => %s, _two_factor_auth_request_id => %s, _token_id => %s, _token_rate => %s, "
                         "_withdrawal_address => %s)",
     (user_id, user_type, req.wallet_id, req.amount, req.remarks, req.two_factor_auth_request_id, req.token_id, token_rate, req.wallet_address))
     return res
