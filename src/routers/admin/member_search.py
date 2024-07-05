@@ -67,10 +67,28 @@ def toggle_member_block_unblock(user_id: str, token_payload: any = Depends(get_c
 
         if len(dataset)>0:
             ds = dataset['rs']
-            if(ds.iloc[0].loc["success"]):
+            if ds.iloc[0].loc["success"]:
                 return { 'success': True, 'message': ds.iloc[0].loc["message"] }
                 
         return { 'success': False, 'message': DATABASE_CONNECTION_ERROR }
+    except Exception as e:
+        print(e.__str__())
+        return {'success': False, 'message': get_error_message(e)}
+
+
+@router.get('/toggle_principle_withdrawal_block_unblock', dependencies=[Depends(RightsChecker([26]))])
+def toggle_principle_withdrawal_block_unblock(user_id: str, token_payload: any = Depends(get_current_user)):
+    try:
+        # print(req)
+        by_admin_user_id = token_payload["user_id"]
+        dataset = data_access.toggle_principle_withdrawal_block_unblock(user_id=user_id, admin_user_id=by_admin_user_id)
+
+        if len(dataset) > 0:
+            ds = dataset['rs']
+            if ds.iloc[0].loc["success"]:
+                return {'success': True, 'message': ds.iloc[0].loc["message"]}
+
+        return {'success': False, 'message': DATABASE_CONNECTION_ERROR}
     except Exception as e:
         print(e.__str__())
         return {'success': False, 'message': get_error_message(e)}

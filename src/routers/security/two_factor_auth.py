@@ -96,11 +96,10 @@ def request_two_factor_auth(user_id: str=VALIDATORS.USER_ID, user_type: str = VA
     try:
         dataset = data_access.request_two_factor_auth(user_id=user_id, user_type=user_type, purpose=purpose)
         
-        if(len(dataset)>0 and len(dataset['rs'])):
+        if len(dataset)>0 and len(dataset['rs']):
             ds = dataset['rs']
 
-
-            if(bool(ds.iloc[0].loc['success'])):
+            if bool(ds.iloc[0].loc['success']):
                 request_id = ds.iloc[0].loc['request_id']
                 request_id = aes.encrypt(str(request_id))
                 return {'success': True, 'message': 'Ok', 'data': {
@@ -112,6 +111,7 @@ def request_two_factor_auth(user_id: str=VALIDATORS.USER_ID, user_type: str = VA
     except Exception as e:
         print(e.__str__())
         return {'success': False, 'message': get_error_message(e)}
+
 
 @router.get('/get_auth_modes_for_2fa_setup', dependencies=[Depends(get_current_user)])
 def get_auth_modes_for_2fa_setup(user_id: str=VALIDATORS.USER_ID, token_payload:any = Depends(get_current_user)):
@@ -127,7 +127,7 @@ def get_auth_modes_for_2fa_setup(user_id: str=VALIDATORS.USER_ID, token_payload:
         dataset = data_access.get_auth_modes_for_setup(user_id=user_id, user_type=user_type)
         if len(dataset)>0 and len(dataset['rs']):
             ds = dataset['rs']
-            if(ds.iloc[0].loc["valid"]):
+            if ds.iloc[0].loc["valid"]:
                 is_two_factor_enabled = bool(ds.iloc[0].loc['two_factor_enabled'])
                 mobile_no = ds.iloc[0].loc['mobile_no']
                 email_id = ds.iloc[0].loc['email_id']
