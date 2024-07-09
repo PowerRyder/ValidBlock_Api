@@ -37,11 +37,10 @@ class WithdrawPrinciple(BaseModel):
     wallet_address: str = ''
 
 
-
 class GetPrincipleWithdrawalRequests(BaseModel):
-    user_id: str
+    user_id: str = ''
     date_from: str = ''
     date_to: str = ''
     status: str = 'All'
-    page_index: int
-    page_size: int
+    page_index: int = 0
+    page_size: int = 10
