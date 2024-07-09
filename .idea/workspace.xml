@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="864628d7-1e25-43ef-bc1a-2d5d6b6dd2da" name="Changes" comment="Added block/unblock principle withdrawal">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="864628d7-1e25-43ef-bc1a-2d5d6b6dd2da" name="Changes" comment="Bug fix" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -109,7 +107,7 @@
       <workItem from="1720085428739" duration="1802000" />
       <workItem from="1720090244160" duration="9294000" />
       <workItem from="1720197470439" duration="3566000" />
-      <workItem from="1720544735424" duration="323000" />
+      <workItem from="1720544735424" duration="653000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed withdrawal">
       <option name="closed" value="true" />
@@ -279,7 +277,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720202963745</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Bug fix">
+      <option name="closed" value="true" />
+      <created>1720545240703</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1720545240703</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -290,7 +296,6 @@
     <MESSAGE value="Added Principle Withdrawal" />
     <MESSAGE value="Added routes to fetch validator transactions" />
     <MESSAGE value="Added routes to get validator transactions" />
-    <MESSAGE value="Bug fix" />
     <MESSAGE value="Added rank details" />
     <MESSAGE value="Changed icons" />
     <MESSAGE value="Separated coin and validator investment details and removed email on topup so that no pdf is sent on topup" />
@@ -300,7 +305,8 @@
     <MESSAGE value="Email templates design changes" />
     <MESSAGE value="Bug fixes" />
     <MESSAGE value="Added block/unblock principle withdrawal" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added block/unblock principle withdrawal" />
+    <MESSAGE value="Bug fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bug fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

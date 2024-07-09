@@ -74,7 +74,7 @@ async def withdraw_fund(req: WithdrawFund, token_payload: any = Depends(get_curr
                     data_access.update_withdrawal_requests_status(by_user_id='', data_dicts=data_dicts)
                     return {'success': False, 'message': 'Withdrawal failed!'}
 
-                data_dicts = json.dumps([{"RequestId": int(dr.loc["request_id"]), "Remarks": "", "Status": "Failed", "TxnHash": ''}])
+                data_dicts = json.dumps([{"RequestId": int(dr.loc["request_id"]), "Remarks": data["message"], "Status": "Failed", "TxnHash": ''}])
                 data_access.update_withdrawal_requests_status(by_user_id='', data_dicts=data_dicts)
                 return {'success': False, 'message': 'Withdrawal failed!'}
 
@@ -167,20 +167,20 @@ async def update_withdrawal_requests_status(dataItems: list[WithdrawalRequestApp
             ds = dataset['rs']
             if ds.iloc[0].loc["success"]:
                 
-                ds_user_details = dataset['rs1']
-                tasks = []
-                for index, row in ds_user_details.iterrows():
-                    amount = addCurrencySymbol(row.loc["amount"])
-                    if row.loc["status"] == "Approved":
-                        send_withdrawal_successful_sms(row.loc["user_id"], row.loc["user_name"], row.loc["mobile_no"], amount)
-                        
-                        tasks.append(send_withdrawal_successful_mail(row.loc["user_id"], row.loc["user_name"], row.loc["email_id"], amount))
-                    else:
-                        # send_withdrawal_rejected_sms(row.loc["user_id"], row.loc["user_name"], row.loc["mobile_no"], amount)
-                        
-                        tasks.append(send_withdrawal_rejected_mail(row.loc["user_id"], row.loc["user_name"], row.loc["email_id"], amount))
-                        
-                await asyncio.gather(*tasks)
+                # ds_user_details = dataset['rs1']
+                # tasks = []
+                # for index, row in ds_user_details.iterrows():
+                #     amount = addCurrencySymbol(row.loc["amount"])
+                #     if row.loc["status"] == "Approved":
+                #         send_withdrawal_successful_sms(row.loc["user_id"], row.loc["user_name"], row.loc["mobile_no"], amount)
+                #
+                #         tasks.append(send_withdrawal_successful_mail(row.loc["user_id"], row.loc["user_name"], row.loc["email_id"], amount))
+                #     else:
+                #         # send_withdrawal_rejected_sms(row.loc["user_id"], row.loc["user_name"], row.loc["mobile_no"], amount)
+                #
+                #         tasks.append(send_withdrawal_rejected_mail(row.loc["user_id"], row.loc["user_name"], row.loc["email_id"], amount))
+                #
+                # await asyncio.gather(*tasks)
                 
                 # end_time = time.time()
                 # print("--- %s seconds ---" % (end_time - start_time))
