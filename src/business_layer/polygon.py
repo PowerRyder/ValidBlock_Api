@@ -184,7 +184,7 @@ def send_matic(from_private_key: str, to_address: str, amount: Decimal, max_fee:
 
         # Send the transaction
         txn_hash = w3.eth.send_raw_transaction(signed_txn.rawTransaction)
-        txn_receipt = w3.eth.wait_for_transaction_receipt(txn_hash)
+        txn_receipt = w3.eth.wait_for_transaction_receipt(txn_hash, timeout=500)
 
         # print(f"Transaction sent! Hash: {txn_hash.hex()}")
         return {'success': True, 'message': OK, 'data': {'transaction_hash': txn_hash.hex(), 'success_status': txn_receipt['status']==1} }
