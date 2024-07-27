@@ -59,6 +59,7 @@ class Register(BaseModel):
 class LoginRequest(BaseModel):
     username: str = VALIDATORS.USER_ID if not company_details['is_decentralized'] else VALIDATORS.USER_ID_DAPP
     password: str = VALIDATORS.PASSWORD
+    user_type: str = 'User'
 
     
 class ResetPassword(BaseModel):

