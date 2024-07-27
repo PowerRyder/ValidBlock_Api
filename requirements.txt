@@ -1,7 +1,7 @@
 fastapi==0.85.0
 gunicorn
 uvicorn[standard]==0.18.3
-pandas==1.5.0
+pandas==2.2.2
 python-jose==3.3.0
 python-multipart==0.0.9
 requests==2.31.0
@@ -20,3 +20,5 @@ aiosmtplib==2.0.2
 python-magic==0.4.27
 eth-account==0.11.0
 web3==6.15.1
+python-magic-bin==0.4.14
+numpy==2.0.0

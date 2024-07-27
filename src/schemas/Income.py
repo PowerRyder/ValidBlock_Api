@@ -115,6 +115,15 @@ class GetRewardIncome_Request(BaseModel):
     page_size: int = 100
     
 
+class GetRankDetails_Request(BaseModel):
+    user_id: str=''
+    date_from: str = ''
+    date_to: str = ''
+    rank_id: int = 0
+    page_index: int = 0
+    page_size: int = 100
+    
+
 class GetMatchingLevelIncome_Request(BaseModel):
     user_id: str = ''
     match_exact_user_id: bool = False
