@@ -56,9 +56,9 @@ async def withdraw_principle(req: WithdrawPrinciple, token_payload: any = Depend
 
             from_token_symbol = company_details['currency_symbol']
 
-            token_rate = get_token_rate(base_token_symbol=from_token_symbol, quote_token_symbol=withdrawal_token_symbol)
+            token_rate = 1  # get_token_rate(base_token_symbol=from_token_symbol, quote_token_symbol=withdrawal_token_symbol)
 
-        dataset = data_access.withdraw_principle(req=req, user_id=user_id, token_rate=token_rate['rate'])
+        dataset = data_access.withdraw_principle(req=req, user_id=user_id, token_rate=token_rate)
         if len(dataset) > 0 and len(dataset['rs']):
             dr = dataset['rs'].iloc[0]
 

@@ -51,9 +51,9 @@ async def withdraw_fund(req: WithdrawFund, token_payload: any = Depends(get_curr
 
             from_token_symbol = df[df['id'] == req.wallet_id].iloc[0]['currency_symbol']
 
-            token_rate = get_token_rate(base_token_symbol=from_token_symbol, quote_token_symbol=withdrawal_token_symbol)
+            token_rate = 1  #get_token_rate(base_token_symbol=from_token_symbol, quote_token_symbol=withdrawal_token_symbol)
 
-        dataset = data_access.withdraw_fund(req=req, user_id=user_id, user_type=user_type, token_rate=token_rate['rate'])
+        dataset = data_access.withdraw_fund(req=req, user_id=user_id, user_type=user_type, token_rate=token_rate)
         if len(dataset) > 0:
             ds = dataset['rs']
 
