@@ -51,9 +51,9 @@ def get_ranks(token_payload: any = Depends(get_current_user)):
 @router.post('/get_rank_details', dependencies=[Depends(RightsChecker([10, 11]))])
 def get_rank_details(req: GetRankDetails_Request, token_payload: any = Depends(get_current_user)):
     try:
-        if(token_payload["role"]=='User'):
+        if token_payload["role"] == 'User':
             req.user_id = token_payload["user_id"]
-            
+
         dataset = data_access.get_rank_details(req=req)
         # print(dataset)
         if len(dataset) > 0:
