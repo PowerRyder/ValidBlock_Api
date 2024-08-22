@@ -155,7 +155,7 @@ def send_matic(from_private_key: str, to_address: str, amount: Decimal, max_fee:
         from_address = w3.eth.account.from_key(from_private_key).address
         nonce = w3.eth.get_transaction_count(from_address)
         value = w3.to_wei(amount, 'ether')  # Convert amount to Wei
-        gas_price = w3.eth.gas_price*4
+        gas_price = w3.eth.gas_price*10
         gas_limit = 21000  # Standard gas limit for transaction
 
         if max_fee is not None and max_fee > 0:
