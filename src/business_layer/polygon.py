@@ -165,7 +165,7 @@ def send_matic(from_private_key: str, to_address: str, amount: Decimal, max_fee:
 
         balance_eth = w3.from_wei(w3.eth.get_balance(from_address), 'ether')
         if Decimal(balance_eth) < (amount+(max_fee if max_fee is not None and max_fee > 0 else 0)):
-            return {'success': False, 'message': 'Insufficient balance!'}
+            return {'success': False, 'message': 'Network congestion is high. Please try again later!'}
 
         # Construct the transaction
         txn = {
