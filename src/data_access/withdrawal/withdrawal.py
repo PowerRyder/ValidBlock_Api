@@ -22,3 +22,9 @@ def update_withdrawal_requests_status(by_user_id: str, data_dicts):
     res = execute_query("call usp_update_withdrawal_request_status(_by_user_id => %s, _data => %s::jsonb)",
                         (by_user_id, data_dicts))
     return res
+
+
+def save_withdrawal_transaction(txn_hash: str, to_address: str, amount: Decimal):
+    res = execute_query("call usp_save_withdrawal_transaction(_txn_hash => %s, _to_address => %s, _amount => %s)",
+                        (txn_hash, to_address, amount))
+    return res
