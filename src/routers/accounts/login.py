@@ -118,7 +118,8 @@ def request_login_token(user_id: str = VALIDATORS.USER_ID, login_id: str = VALID
                             'is_mobile_verification_required': bool(login_info_df.iloc[0].loc['is_mobile_verification_required']),
                             'is_mobile_verified': bool(login_info_df.iloc[0].loc['is_mobile_verified']),
                             'email_id': login_info_df.iloc[0].loc['email_id'],
-                            'mobile_no': login_info_df.iloc[0].loc['mobile_no']
+                            'mobile_no': login_info_df.iloc[0].loc['mobile_no'],
+                            'is_login_pin_required_to_set': bool(login_info_df.iloc[0].loc['is_login_pin_required_to_set'])
                         }}
 
                 return {'success': False, 'message': login_info_df.iloc[0].loc['message']}

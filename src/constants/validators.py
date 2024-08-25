@@ -28,8 +28,8 @@ GENDER                      = Query(default='M', regex=r'^[MF]$')
 TITLE                       = Query(default='Mr', regex=r'^(Mr|Ms|Mrs)$')
 NOMINEE_RELATIONSHIP        = Query(regex=r'^(Father|Mother|Husband|Wife|Son|Brother|Sister|Daughter|Other)$')
 
-TWO_FACTOR_AUTH_PURPOSE     = Query(regex=r'^(Login|GeneratePin|TransferPin|Toggle2FA|ChangePassword|TopupByPin|TopupFromWallet|TransferFund|Withdrawal|PrincipleWithdrawal|AdminContactUpdate|UserContactUpdate)$')
-TWO_FACTOR_AUTH_MODE        = Query(regex=r'^(Google_authenticator|Mobile|Email)$')
+TWO_FACTOR_AUTH_PURPOSE     = Query(regex=r'^(Login|GeneratePin|TransferPin|Toggle2FA|ChangePassword|TopupByPin|TopupFromWallet|TransferFund|Withdrawal|PrincipleWithdrawal|AdminContactUpdate|UserContactUpdate|SetupPIN)$')
+TWO_FACTOR_AUTH_MODE        = Query(regex=r'^(Google_authenticator|Mobile|Email|PIN)$')
 
 PAN_CARD_NUMBER             = Query(regex=r'^[A-Z]{5}[0-9]{4}[A-Z]{1}$')
 AADHAAR_CARD_NUMBER         = Query(regex=r'^\d{12}$')
