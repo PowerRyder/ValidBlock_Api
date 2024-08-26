@@ -65,3 +65,19 @@ def get_rank_details(req: GetRankDetails_Request, token_payload: any = Depends(g
     except Exception as e:
         print(e.__str__())
         return {'success': False, 'message': get_error_message(e)}
+
+
+@router.get('/get_user_rank_qualification_details', dependencies=[Depends(RightsChecker([11]))])
+def get_user_rank_qualification_details(user_id: str, token_payload: any = Depends(get_current_user)):
+    try:
+        dataset = data_access.get_user_rank_qualification_details(user_id=user_id)
+        # print(dataset)
+        if len(dataset) > 0:
+            ds = dataset['rs']
+            return {'success': True, 'message': OK, 'data': data_frame_to_json_object(ds)}
+
+        return {'success': False, 'message': DATABASE_CONNECTION_ERROR}
+
+    except Exception as e:
+        print(e.__str__())
+        return {'success': False, 'message': get_error_message(e)}

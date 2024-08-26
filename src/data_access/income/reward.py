@@ -19,3 +19,8 @@ def get_rank_details(req: GetRankDetails_Request):
                         (req.user_id, [req.date_from if req.date_from!='' else None, req.date_to if req.date_to!='' else None], req.rank_id, req.page_index, req.page_size))
     return res
 
+
+def get_user_rank_qualification_details(user_id: str):
+    res = execute_query("call usp_get_user_rank_qualification_details(_user_id => %s)", (user_id, ))
+    return res
+
