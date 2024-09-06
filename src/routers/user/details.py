@@ -45,7 +45,8 @@ def dashboard_details(token_payload: any = Depends(get_current_user)):
                         'income': data_frame_to_json_object(dataset['rs1']),
                         'wallet_balances': data_frame_to_json_object(dataset['rs2']),
                         'news': data_frame_to_json_object(dataset['rs_news']),
-                        'rank_details': data_frame_to_json_object(dataset['rs_rank'])}
+                        'rank_details': data_frame_to_json_object(dataset['rs_rank']),
+                        'hong_kong_qualification_details': data_frame_to_json_object(dataset['rs_hong_kong_qualification'])}
             
             return {'success': False, 'message': INVALID_USER_ID }
     except Exception as e:
