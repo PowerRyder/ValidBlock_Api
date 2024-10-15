@@ -52,7 +52,7 @@ class GetCryptoDeposit(BaseModel):
     txn_hash: str = ''
     input_txn_status: str = 'All'
     page_index: int = 0
-    page_size: int = 100
+    page_size: int = 500
 
 
 class GetRequestsForValidator(BaseModel):
