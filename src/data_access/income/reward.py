@@ -54,3 +54,7 @@ def get_hong_kong_qualification_details(user_id: str):
     return res
 
 
+def get_dubai_qualifiers(req: GetRankDetails_Request):
+    res = execute_query("call usp_get_dubai_qualifiers(_user_id => %s, _on_date => %s::timestamptz[], _page_index => %s, _page_size => %s)",
+                        (req.user_id, [req.date_from if req.date_from!='' else None, req.date_to if req.date_to!='' else None], req.page_index, req.page_size))
+    return res
