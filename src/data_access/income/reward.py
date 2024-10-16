@@ -31,7 +31,6 @@ def get_reward_details(req: GetRankDetails_Request):
     return res
 
 
-
 def get_reward_qualification_details(req: GetRankDetails_Request):
     res = execute_query("call usp_get_rank_details(_user_id => %s, _on_date => %s::timestamptz[], _rank_id => %s, _page_index => %s, _page_size => %s)",
                         (req.user_id, [req.date_from if req.date_from!='' else None, req.date_to if req.date_to!='' else None], req.rank_id, req.page_index, req.page_size))
