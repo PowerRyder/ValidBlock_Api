@@ -80,9 +80,9 @@ def check_for_new_deposits():
                 deposit_request_ids += dr['payment_request_id']
 
         if deposit_request_ids != '':
-            response = requests.get(
-                crypto_payment_gateway_config['BaseURL'] + 'get_deposit_details?api_key=' + crypto_payment_gateway_config[
-                    'AppKey'] + '&deposit_request_ids=' + deposit_request_ids)
+            url = crypto_payment_gateway_config['BaseURL'] + 'get_deposit_details?api_key=' + crypto_payment_gateway_config[
+                    'AppKey'] + '&deposit_request_ids=' + deposit_request_ids
+            response = requests.get(url)
 
             response = response.json()
 
