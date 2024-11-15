@@ -26,4 +26,8 @@ class UserNomineeDetailsUpdateRequest(BaseModel):
     nominee_title: str = VALIDATORS.TITLE
     nominee_name: str = VALIDATORS.NAME
     nominee_relationship: str = VALIDATORS.NOMINEE_RELATIONSHIP
-    
+
+
+class UpdatePOL_Address(BaseModel):
+    user_id: str = VALIDATORS.USER_ID
+    pol_Address: str
