@@ -107,7 +107,6 @@ def update_pol_address(req: UpdatePOL_Address, token_payload: any = Depends(get_
         if token_payload["role"] == 'User':
             req.user_id = token_payload["user_id"]
 
-
         dataset = data_access.update_pol_address(user_id=req.user_id,
                                                  by_user_id=token_payload["user_id"],
                                                  by_user_type=token_payload["role"],
