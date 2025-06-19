@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1b713d2-e276-41d4-afaf-6cba15077c11" name="Changes" comment="Bug fix">
-      <change beforePath="$PROJECT_DIR$/.idea/Api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Api.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="864628d7-1e25-43ef-bc1a-2d5d6b6dd2da" name="Changes" comment="Increased transaction receipt timeout">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/routes.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/routes.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routers/admin/details.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/admin/details.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +15,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Jupyter Notebook" />
+        <option value="HTML File" />
         <option value="Python Script" />
       </list>
     </option>
@@ -28,36 +25,38 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 7
 }</component>
-  <component name="ProjectId" id="2dFzOqTaxPMJJlZkzOVnH4IPCC7" />
+  <component name="ProjectId" id="2hNlYOj83tceMIHok1F0MemsJ57" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/Projects/MyProjects/Imp/MLM/Api/src/data_access/admin/miscellaneous",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Projects/MyProjects/Client/ValidBlock/API/src/data_access/income&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Projects\MyProjects\Imp\MLM\Api\src\data_access\admin\miscellaneous" />
+      <recent name="D:\Projects\MyProjects\Client\ValidBlock\API\src\data_access\income" />
+      <recent name="D:\Projects\MyProjects\Client\ValidBlock\API\src\data_access" />
     </key>
   </component>
   <component name="RunManager">
     <configuration name="run" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Api" />
+      <module name="API" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -87,127 +86,276 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b1b713d2-e276-41d4-afaf-6cba15077c11" name="Changes" comment="" />
-      <created>1709618585200</created>
+      <changelist id="864628d7-1e25-43ef-bc1a-2d5d6b6dd2da" name="Changes" comment="" />
+      <created>1717442464525</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1709618585200</updated>
-      <workItem from="1709618586301" duration="10725000" />
-      <workItem from="1709820508555" duration="16948000" />
-      <workItem from="1716270741733" duration="6644000" />
+      <updated>1717442464525</updated>
+      <workItem from="1717442466280" duration="681000" />
+      <workItem from="1717908675627" duration="12109000" />
+      <workItem from="1718254370416" duration="837000" />
+      <workItem from="1718269828631" duration="4488000" />
+      <workItem from="1718308766812" duration="8950000" />
+      <workItem from="1718731554705" duration="5627000" />
+      <workItem from="1718909990542" duration="1633000" />
+      <workItem from="1718977872407" duration="602000" />
+      <workItem from="1719077495859" duration="5921000" />
+      <workItem from="1719251471260" duration="2138000" />
+      <workItem from="1719424540860" duration="4710000" />
+      <workItem from="1719464472613" duration="8163000" />
+      <workItem from="1719913076385" duration="379000" />
+      <workItem from="1719913878637" duration="747000" />
+      <workItem from="1719917727488" duration="1467000" />
+      <workItem from="1720085428739" duration="1802000" />
+      <workItem from="1720090244160" duration="9294000" />
+      <workItem from="1720197470439" duration="3566000" />
+      <workItem from="1720544735424" duration="653000" />
+      <workItem from="1720549416882" duration="1908000" />
+      <workItem from="1720902905990" duration="607000" />
+      <workItem from="1720956555296" duration="1337000" />
+      <workItem from="1720957939373" duration="685000" />
+      <workItem from="1721025613985" duration="624000" />
+      <workItem from="1721044066711" duration="636000" />
+      <workItem from="1721070741218" duration="696000" />
     </task>
-    <task id="LOCAL-00001" summary="Test from Pycharm">
+    <task id="LOCAL-00001" summary="Fixed withdrawal">
       <option name="closed" value="true" />
-      <created>1709618615251</created>
+      <created>1717952891382</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1709618615251</updated>
+      <updated>1717952891382</updated>
     </task>
-    <task id="LOCAL-00002" summary="Test from Pycharm">
+    <task id="LOCAL-00002" summary="Added Principle Withdrawal">
       <option name="closed" value="true" />
-      <created>1709618818664</created>
+      <created>1718009538275</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1709618818664</updated>
+      <updated>1718009538275</updated>
     </task>
-    <task id="LOCAL-00003" summary="Test from Pycharm">
+    <task id="LOCAL-00003" summary="Added routes to fetch validator transactions">
       <option name="closed" value="true" />
-      <created>1709619082871</created>
+      <created>1718312588525</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1709619082871</updated>
+      <updated>1718312588526</updated>
     </task>
-    <task id="LOCAL-00004" summary="Test from Pycharm">
+    <task id="LOCAL-00004" summary="Added routes to get validator transactions">
       <option name="closed" value="true" />
-      <created>1709619973439</created>
+      <created>1718313863540</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1709619973439</updated>
+      <updated>1718313863540</updated>
     </task>
-    <task id="LOCAL-00005" summary="Bug fixes">
+    <task id="LOCAL-00005" summary="Bug fix">
       <option name="closed" value="true" />
-      <created>1709717946848</created>
+      <created>1718314239975</created>
       <option name="number" value="00005" />
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
-      <updated>1709717946848</updated>
+      <updated>1718314239975</updated>
     </task>
-    <task id="LOCAL-00006" summary="Added feature to update sponsor">
+    <task id="LOCAL-00006" summary="Bug fix">
       <option name="closed" value="true" />
-      <created>1709823080173</created>
+      <created>1718447948300</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1709823080173</updated>
+      <updated>1718447948300</updated>
     </task>
-    <task id="LOCAL-00007" summary="Fixed bugs of Docs design">
+    <task id="LOCAL-00007" summary="Bug fix">
       <option name="closed" value="true" />
-      <created>1709831861831</created>
+      <created>1718459851817</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1709831861831</updated>
+      <updated>1718459851817</updated>
     </task>
-    <task id="LOCAL-00008" summary="Separated notifications from support messages.">
+    <task id="LOCAL-00008" summary="Bug fix">
       <option name="closed" value="true" />
-      <created>1709929910225</created>
+      <created>1718460967426</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1709929910225</updated>
+      <updated>1718460967426</updated>
     </task>
     <task id="LOCAL-00009" summary="Bug fix">
       <option name="closed" value="true" />
-      <created>1710077462029</created>
+      <created>1718518771618</created>
       <option name="number" value="00009" />
       <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
-      <updated>1710077462029</updated>
+      <updated>1718518771618</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Added rank details">
+      <option name="closed" value="true" />
+      <created>1718876254427</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1718876254427</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Changed icons">
+      <option name="closed" value="true" />
+      <created>1718952299811</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1718952299811</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Changed icons">
+      <option name="closed" value="true" />
+      <created>1718952319582</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1718952319582</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Separated coin and validator investment details and removed email on topup so that no pdf is sent on topup">
+      <option name="closed" value="true" />
+      <created>1719165305659</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1719165305659</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Added polygon validator">
+      <option name="closed" value="true" />
+      <created>1719253226609</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1719253226609</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Principle withdrawals on admin approval and stopped email compilation">
+      <option name="closed" value="true" />
+      <created>1719428415427</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1719428415427</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Changed email templates">
+      <option name="closed" value="true" />
+      <created>1719476212071</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1719476212071</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Email templates design changes">
+      <option name="closed" value="true" />
+      <created>1719555078248</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1719555078248</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Bug fixes">
+      <option name="closed" value="true" />
+      <created>1719939261999</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1719939261999</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Bug fixes">
+      <option name="closed" value="true" />
+      <created>1720108319097</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1720108319097</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Bug fixes">
+      <option name="closed" value="true" />
+      <created>1720120286723</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1720120286723</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Added block/unblock principle withdrawal">
+      <option name="closed" value="true" />
+      <created>1720202963745</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1720202963745</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Bug fix">
+      <option name="closed" value="true" />
+      <created>1720545240703</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1720545240703</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Bug fix">
+      <option name="closed" value="true" />
+      <created>1720549983333</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1720549983333</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Increased transaction receipt timeout">
+      <option name="closed" value="true" />
+      <created>1720956606073</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1720956606073</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Test from Pycharm" />
+    <MESSAGE value="Fixed withdrawal" />
+    <MESSAGE value="Added Principle Withdrawal" />
+    <MESSAGE value="Added routes to fetch validator transactions" />
+    <MESSAGE value="Added routes to get validator transactions" />
+    <MESSAGE value="Added rank details" />
+    <MESSAGE value="Changed icons" />
+    <MESSAGE value="Separated coin and validator investment details and removed email on topup so that no pdf is sent on topup" />
+    <MESSAGE value="Added polygon validator" />
+    <MESSAGE value="Principle withdrawals on admin approval and stopped email compilation" />
+    <MESSAGE value="Changed email templates" />
+    <MESSAGE value="Email templates design changes" />
     <MESSAGE value="Bug fixes" />
-    <MESSAGE value="Added feature to update sponsor" />
-    <MESSAGE value="Fixed bugs of Docs design" />
-    <MESSAGE value="Separated notifications from support messages." />
+    <MESSAGE value="Added block/unblock principle withdrawal" />
     <MESSAGE value="Bug fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bug fix" />
+    <MESSAGE value="Increased transaction receipt timeout" />
+    <option name="LAST_COMMIT_MESSAGE" value="Increased transaction receipt timeout" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <default-breakpoints>
-        <breakpoint type="python-exception">
-          <properties notifyOnTerminate="true" exception="BaseException">
-            <option name="notifyOnTerminate" value="true" />
-          </properties>
-        </breakpoint>
-      </default-breakpoints>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/business_layer/polygon.py</url>
+          <line>145</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/routers/topup/crypto_deposit.py</url>
+          <line>65</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/API$run.coverage" NAME="run Coverage Results" MODIFIED="1716284875287" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Api$pin.coverage" NAME="pin Coverage Results" MODIFIED="1709622059804" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/routers/pin" />
-    <SUITE FILE_PATH="coverage/Api$run.coverage" NAME="run Coverage Results" MODIFIED="1709964917887" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/API$utils.coverage" NAME="utils Coverage Results" MODIFIED="1718269873160" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/utilities" />
+    <SUITE FILE_PATH="coverage/API$run.coverage" NAME="run Coverage Results" MODIFIED="1721070842040" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/API$crypto_deposit.coverage" NAME="crypto_deposit Coverage Results" MODIFIED="1718305550922" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/routers/topup" />
+    <SUITE FILE_PATH="coverage/API$login.coverage" NAME="login Coverage Results" MODIFIED="1718460899864" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/routers/accounts" />
+    <SUITE FILE_PATH="coverage/API$principle_withdrawal.coverage" NAME="principle_withdrawal Coverage Results" MODIFIED="1717999649441" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/routers/withdrawal" />
+    <SUITE FILE_PATH="coverage/API$withdrawal.coverage" NAME="withdrawal Coverage Results" MODIFIED="1718269867664" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/routers/automation" />
   </component>
 </project>

@@ -45,7 +45,8 @@ def execute_query(query, params=None) -> dict[str, pd.DataFrame]:
                     
                     result[_cursor] = df
                 except Exception as e:
-                    pass
+                    print(e.__str__())
+                    get_error_message(e)
         else:
             pass
         
@@ -53,6 +54,7 @@ def execute_query(query, params=None) -> dict[str, pd.DataFrame]:
         conn.commit()
     except (Exception, psycopg2.DatabaseError) as error:
         print(error)
+        get_error_message(error)
         conn.rollback()
     finally:
         if conn is not None:
@@ -104,11 +106,17 @@ def generate_google_authenticator_secret_key():
 
 
 def get_ip_info(ip_address: str):
-    handler = ipinfo.getHandler(config["IP_Info_Key"])
-    details = handler.getDetails(ip_address)
+    try:
+        handler = ipinfo.getHandler(config["IP_Info_Key"])
+        details = handler.getDetails(ip_address)
 
-    details = json.dumps(details.details)
-    return details
+        details = json.dumps(details.details)
+        return details
+
+    except Exception as e:
+        print(e.__str__())
+        return None
+
 
 
 def intersection(lst1, lst2):

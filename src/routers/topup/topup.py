@@ -28,7 +28,7 @@ def topup_by_pin(req: TopupByPinRequest, token_payload: any = Depends(get_curren
         if len(dataset) > 0 and len(dataset['rs']):
             ds = dataset['rs']
             if ds.iloc[0].loc["success"]:
-                send_topup_mail_and_sms(ds)
+                # send_topup_mail_and_sms(ds)
                 # send_topup_sms(ds.iloc[0].loc["user_id"], ds.iloc[0].loc["user_name"], ds.iloc[0].loc["mobile_no"], ds.iloc[0].loc["package_name"])
                 
                 # send_topup_mail(ds.iloc[0].loc["user_id"], ds.iloc[0].loc["user_name"], ds.iloc[0].loc["email_id"], ds.iloc[0].loc["package_name"], amount )
@@ -52,13 +52,12 @@ def topup_from_wallet(req: TopupFromWalletRequest, token_payload: any = Depends(
         else:
             req.two_factor_auth_request_id = 0
             
-        dataset = data_access.topup_from_wallet(req=req, by_user_id=token_payload["user_id"],
-                                            by_user_type=token_payload["role"])
+        dataset = data_access.topup_from_wallet(req=req, by_user_id=token_payload["user_id"], by_user_type=token_payload["role"])
         # print(dataset)
         if len(dataset) > 0 and len(dataset['rs']):
             ds = dataset['rs']
             if ds.iloc[0].loc["success"]:
-                send_topup_mail_and_sms(ds)
+                # send_topup_mail_and_sms(ds)
                 
                 return {'success': True, 'message': ds.iloc[0].loc["message"]}
 

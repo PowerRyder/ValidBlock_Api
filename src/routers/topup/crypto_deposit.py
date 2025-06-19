@@ -17,11 +17,11 @@ crypto_payment_gateway_config = config['CryptoPaymentGateway']
 @router.get('/get_deposit_currencies', dependencies=[Depends(RightsChecker([216]))])
 async def get_deposit_currencies(token_payload: any = Depends(get_current_user)):
     try:
-        response = requests.get(crypto_payment_gateway_config['BaseURL']+'get_deposit_currencies?app_key='+crypto_payment_gateway_config['AppKey'])
+        response = requests.get(crypto_payment_gateway_config['BaseURL']+'get_deposit_currencies?api_key='+crypto_payment_gateway_config['AppKey'])
 
         data = response.json()
 
-        # print(data)
+        print(data)
         if data['success']:
             return {'success': True, 'message': OK, 'data': data['data'] }
 
@@ -33,9 +33,9 @@ async def get_deposit_currencies(token_payload: any = Depends(get_current_user))
 
 
 @router.get('/get_deposit_address', dependencies=[Depends(RightsChecker([216]))])
-async def get_deposit_address(network: str, currency_symbol: str, amount: float, token_payload: any = Depends(get_current_user)):
+async def get_deposit_address(network: str, currency_symbol: str, currency_code: str, amount: float, token_payload: any = Depends(get_current_user)):
     try:
-        url = crypto_payment_gateway_config['BaseURL']+'request_address_for_payment?app_key='+crypto_payment_gateway_config['AppKey']+'&network='+network+'&currency_symbol='+currency_symbol
+        url = crypto_payment_gateway_config['BaseURL']+'request_deposit_address?api_key='+crypto_payment_gateway_config['AppKey']+'&currency_code='+currency_code+'&payout_type=ASAP'
         response = requests.get(url)
 
         data = response.json()
@@ -44,7 +44,7 @@ async def get_deposit_address(network: str, currency_symbol: str, amount: float,
         if data['success']:
             address = data['address']
             address_qr = data['address_qr']
-            payment_request_id = data['payment_request_id']
+            payment_request_id = data['deposit_request_id']
 
             dataset = data_access.save_crypto_deposit_request_details(user_id=token_payload['user_id'], network=network, token_symbol=currency_symbol, payment_request_id=payment_request_id, amount=amount)
 
@@ -56,6 +56,58 @@ async def get_deposit_address(network: str, currency_symbol: str, amount: float,
                 return {'success': False, 'message': ds.iloc[0].loc["message"]}
         return {'success': False, 'message': DATABASE_CONNECTION_ERROR}
 
+    except Exception as e:
+        print(e.__str__())
+        return {'success': False, 'message': get_error_message(e)}
+
+
+@router.get('/check_for_new_deposits')
+def check_for_new_deposits():
+    try:
+        req = GetCryptoDeposit()
+        req.input_txn_status = 'Pending'
+        req.request_id = 0
+        pending_dataset = data_access.get_crypto_deposits_history(req=req)
+
+        deposit_request_ids = ''
+        if len(pending_dataset) > 0 and len(pending_dataset['rs']) > 0:
+            pending_requests = pending_dataset['rs']
+
+            for i, dr in pending_requests.iterrows():
+                if deposit_request_ids != '':
+                    deposit_request_ids += ','
+
+                deposit_request_ids += dr['payment_request_id']
+
+        if deposit_request_ids != '':
+            url = crypto_payment_gateway_config['BaseURL'] + 'get_deposit_details?api_key=' + crypto_payment_gateway_config[
+                    'AppKey'] + '&deposit_request_ids=' + deposit_request_ids
+            response = requests.get(url)
+
+            response = response.json()
+
+            if response['success']:
+                for data in response['data']:
+                    dataset = data_access.update_crypto_deposit_request_details(
+                        payment_request_id=str(data['deposit_request_id']),
+                        input_txn_hash=str(data['input_txn_hash']),
+                        input_txn_explorer_url=str(data['input_txn_hash_explorer_url']),
+                        in_amount=data['in_amount'],
+                        input_txn_status=str(data['input_txn_status']),
+                        input_txn_timestamp=int(data['input_txn_timestamp']),
+                        out_transaction_hash=str(data['out_transaction_hash']),
+                        output_txn_explorer_url=str(data['out_txn_hash_explorer_url']),
+                        out_transaction_status=str(data['out_transaction_status']),
+                        out_transaction_date=int(data['output_txn_timestamp']),
+                        out_amount=data['out_amount'],
+                        out_processing_fee=data['out_processing_fee'])
+
+                    # if len(dataset) > 0 and len(dataset['rs']) > 0:
+                    #     return {'success': True, 'message': 'Deposit details saved successfully! Payment Id: '+payment_request_id}
+
+                    # return {'success': False, 'message': 'Some error occurred while saving details!'}
+                return {'success': True, 'message': 'Deposit details saved successfully!'}
+        return {'success': False, 'message': 'No details found for the deposit!'}
     except Exception as e:
         print(e.__str__())
         return {'success': False, 'message': get_error_message(e)}

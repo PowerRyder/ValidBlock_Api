@@ -26,3 +26,4 @@ def get_current_block_timestamp():
         block_number = block_number - 1
 
     return timestamp
+

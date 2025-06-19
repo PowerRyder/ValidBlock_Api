@@ -29,6 +29,7 @@ class TopupDetailsRequest(BaseModel):
     side: str = 'All'
     level: int = 0
     package_id: int = 0
+    package_type: str = ''
     topup_type: str = 'All'
     by_user_id: str = ''
     by_user_type: str = VALIDATORS.USER_TYPE_ALL
@@ -40,7 +41,7 @@ class TopupDetailsRequest(BaseModel):
 class RoiBlockUnblockRequest(BaseModel):
     pin_srno: int
     status: str = VALIDATORS.ROI_BLOCK_STATUS
-    remarks: str=''
+    remarks: str = ''
 
 
 class GetCryptoDeposit(BaseModel):
@@ -49,5 +50,15 @@ class GetCryptoDeposit(BaseModel):
     date_to: str = ''
     request_id: str = ''
     txn_hash: str = ''
+    input_txn_status: str = 'All'
+    page_index: int = 0
+    page_size: int = 500
+
+
+class GetRequestsForValidator(BaseModel):
+    user_id: str = ''
+    date_from: str = ''
+    date_to: str = ''
+    status: str = 'All'
     page_index: int = 0
     page_size: int = 100

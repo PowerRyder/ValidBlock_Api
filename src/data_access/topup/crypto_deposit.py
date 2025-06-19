@@ -31,8 +31,14 @@ def get_crypto_deposit_request_details(request_id: int):
     return res
 
 
+# def get_crypto_deposits_history(req: GetCryptoDeposit, match_exact_user_id: bool = False):
+#     res = execute_query("call usp_get_crypto_deposits_history(_user_id => %s, _match_exact_user_id => %s, _between_date => %s::timestamptz[], _request_id => %s, _txn_hash => %s, _page_index => %s, _page_size => %s)",
+#                         (req.user_id, match_exact_user_id, [req.date_from if req.date_from != '' else None, req.date_to if req.date_to != '' else None], req.request_id, req.txn_hash, req.page_index, req.page_size))
+#     return res
+
+
 def get_crypto_deposits_history(req: GetCryptoDeposit, match_exact_user_id: bool = False):
-    res = execute_query("call usp_get_crypto_deposits_history(_user_id => %s, _match_exact_user_id => %s, _between_date => %s::timestamptz[], _request_id => %s, _txn_hash => %s, _page_index => %s, _page_size => %s)",
-                        (req.user_id, match_exact_user_id, [req.date_from if req.date_from != '' else None, req.date_to if req.date_to != '' else None], req.request_id, req.txn_hash, req.page_index, req.page_size))
+    res = execute_query("call usp_get_crypto_deposits_history(_user_id => %s, _match_exact_user_id => %s, _between_date => %s::timestamptz[], _request_id => %s, _txn_hash => %s, _input_txn_status => %s, _page_index => %s, _page_size => %s)",
+                        (req.user_id, match_exact_user_id, [req.date_from if req.date_from != '' else None, req.date_to if req.date_to != '' else None], req.request_id, req.txn_hash, req.input_txn_status, req.page_index, req.page_size))
     return res
 

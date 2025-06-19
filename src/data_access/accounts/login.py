@@ -2,8 +2,9 @@
 from src.utilities.utils import execute_query
 
 
-def login(user_id: str, password: str, url: str, host: str, ip_details):
-    res = execute_query("call usp_login(_user_id => %s, _password => %s, _url => %s, _ip_address =>%s, _ip_details => %s::json)", (user_id, password, url, host, ip_details))
+def login(user_id: str, password: str, url: str, host: str, ip_details, user_type: str):
+    res = execute_query("call usp_login(_user_id => %s, _password => %s, _url => %s, _ip_address =>%s, _ip_details => %s::json, _user_type => %s)",
+                        (user_id, password, url, host, ip_details, user_type))
     return res
 
 

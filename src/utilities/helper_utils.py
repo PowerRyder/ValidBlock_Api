@@ -10,7 +10,7 @@ import os
 import aiosmtplib
 import pandas as pd
 import requests
-from src.utilities.utils import company_details, config
+from src.utilities.utils import company_details, config, get_error_message
 from datetime import date
 from requests.auth import HTTPBasicAuth
 from src.data_access import misc as misc_data_access
@@ -29,7 +29,9 @@ def get_company_details_dict():
             'currency_symbol': company_details.loc["currency_symbol"],
             'is_currency_symbol_prefixed': company_details.loc["is_currency_symbol_prefixed"],
             'tax_name': company_details.loc["tax_name"],
-            'round_off_digits': company_details.loc["round_off_digits"]
+            'round_off_digits': company_details.loc["round_off_digits"],
+            'company_email': company_details.loc["email"],
+            'company_mobile': company_details.loc["mobile"]
             }
 
 
@@ -67,8 +69,10 @@ def delete_precompiled_templates():
         files = glob.glob('templates/email/compiled/*.html')
         for f in files:
             os.remove(f)
+        return 'Files removed'
     except Exception as e:
         print(e.__str__())
+        return get_error_message(e)
 
 
 def get_email_template(template_name):
